@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero': "url('./src/assets/imgs/hero2.jpg')", 
+        'hero': "url('https://res.cloudinary.com/dscpwrzng/image/upload/v1735085831/hero2_ydcjnd.jpg')", 
       },
       colors:{
         "gray": " rgba(225, 225, 225, .1)",
