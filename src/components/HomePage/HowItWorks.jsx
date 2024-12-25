@@ -50,7 +50,7 @@ const HowItWorks = () => {
         }
       </div>
 
-      <div className="sm:h-[500px] h-[300px] m-auto">
+      <div className="sm:h-[500px] max-lg:flex max-lg:items-center max-lg:justify-center max-lg:w-full h-[300px] m-auto">
         <img src={how_work} className='sm:max-w-[500px] max-w-[400px] max-xs:max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-gray border-dashed rounded-b-xl' alt="How it works image" />
       </div>
       </div>
