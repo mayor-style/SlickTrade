@@ -29,14 +29,14 @@ const HowItWorks = () => {
 
   return (
     <section className='bg-black min-h-screen py-[100px] px-[20px] overflow-hidden'>
-      <h1 className='text-center text-white sm:text-4xl text-3xl max-xs:text-2xl font-bold'>How <span>Slick</span>Trade Works</h1>
-      <div className="py-2 flex items-center gap-5 mt-5 px-3 bg-gray border border-gray rounded-full m-auto w-fit ">
+      <h1 className='text-center text-white sm:text-4xl text-3xl max-xs:text-2xl font-bold'>How <span>Slick</span>Trade Works In 5 Simple <span>Steps</span></h1>
+      <div className="py-2 flex items-center gap-5 mt-5 px-3 shadow-md shadow-gray bg-gray border border-[rgb(94,94,94)] rounded-full m-auto w-fit ">
       <p className='bg-[gold] text-sm font-medium text-black px-3 py-1 max-xs:text-xs rounded-full cursor-pointer'>For Users</p>
       <p className='cursor-pointer max-xs:text-xs text-sm'>For Vendors</p>
       </div>
 
-      <div className="flex max-lg:flex-col gap-5 lg:items-center justify-center">
-      <div className="flex flex-col mt-10 gap-6 text-white">
+      <div className="flex max-lg:flex-col gap-5 items-center justify-center">
+      <div className="flex flex-col mt-10 gap-6 text-white max-lg:w-full">
         {
           user.map((x)=>{
             return <div key={x.index} className="border-b-2 flex gap-5 items-center just border-gray pb-2">       
