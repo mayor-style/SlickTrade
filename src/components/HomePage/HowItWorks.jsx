@@ -1,5 +1,5 @@
 import React from 'react'
-import how_work from '../../assets/imgs/about.jpg'
+import how_work from '../../assets/imgs/vendor1.jpg'
 
 const HowItWorks = () => {
 
@@ -35,14 +35,14 @@ const HowItWorks = () => {
       <p className='cursor-pointer max-xs:text-xs text-sm'>For Vendors</p>
       </div>
 
-      <div className="flex max-lg:flex-col gap-5 items-center justify-center">
+      <div className="flex max-lg:flex-col gap-7 items-center justify-center">
       <div className="flex flex-col mt-10 gap-6 text-white max-lg:w-full">
         {
           user.map((x)=>{
             return <div key={x.index} className="border-b-2 flex gap-5 items-center just border-gray pb-2">       
               <h1 className=' l:text-3xl max-xs:text-xl text-2xl'>{x.index}</h1>
             <div className="">
-            <h1 className='l:text-2xl max-xs:text-lg text-xl font-semibold mb-2'> {x.title}</h1>    
+            <h1 className='tracking-wide l:text-2xl max-xs:text-lg text-xl font-semibold mb-2'> {x.title}</h1>    
             <p className='max-l:text-sm max-xs:text-xs tracking-wide'>{x.text}</p>
             </div>
           </div>
@@ -50,8 +50,9 @@ const HowItWorks = () => {
         }
       </div>
 
-      <div className="sm:h-[500px] max-lg:flex max-lg:items-center max-lg:justify-center max-lg:w-full h-[300px] m-auto">
-        <img src={how_work} className='sm:max-w-[500px] max-w-[400px] max-xs:max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-gray border-dashed rounded-b-xl' alt="How it works image" />
+      <div className="sm:h-[450px] max-lg:flex max-lg:items-center max-lg:justify-center max-lg:w-full h-[300px] m-auto relative">
+        <img src={how_work} className='sm:max-w-[450px] max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-slate-800 border-dashed rounded-b-xl' alt="How it works image" />
+        <div className="absolute bg-black h-full w-full top-0 rounded-t-full bg-opacity-0"></div>
       </div>
       </div>
     </section>
