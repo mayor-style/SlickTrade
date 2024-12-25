@@ -12,6 +12,9 @@ module.exports = {
         "gray": " rgba(225, 225, 225, .1)",
         "light-black": "rgba(0,0,0,0.5)]",
       },
+      screens:{
+        'xs':'480px'
+      },
     },
   },
   plugins: [],

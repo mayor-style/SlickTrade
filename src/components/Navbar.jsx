@@ -10,10 +10,10 @@ const Navbar = () => {
         <h1 className='tracking-wide sm:text-xl text-lg font-semibold'>SlickTrade</h1>
       </div>
 
-      <ul className='lg:flex lg:w-full hidden flex-row w-full justify-center items-center gap-7 tracking-wider'>
-        <li><Link className='link hover:text-[gold] transition-all duration-200'>About</Link></li>
-        <li><Link className='link hover:text-[gold] transition-all duration-200'>Features</Link></li>
-        <li><Link className='link hover:text-[gold] transition-all duration-200'>How It Works</Link></li>
+      <ul className='lg:flex lg:w-full hidden flex-row w-full justify-center items-center gap-7 bg-gray tracking-wider border border-[rgb(94,94,94)] py-2 rounded-full'>
+        <li><Link className='link hover:bg-[gold] hover:py-1 hover:px-2 hover:text-black hover:font-semibold hover:text-sm rounded-full transition-all duration-200'>About</Link></li>
+        <li><Link className='link hover:bg-[gold] hover:py-1 hover:px-2 hover:text-black hover:font-semibold hover:text-sm rounded-full transition-all duration-200'>Features</Link></li>
+        <li><Link className='link hover:bg-[gold] hover:py-1 hover:px-2 hover:text-black hover:font-semibold hover:text-sm rounded-full transition-all duration-200'>How It Works</Link></li>
       </ul>
 
       <div className="flex lg:w-full justify-center items-center">
