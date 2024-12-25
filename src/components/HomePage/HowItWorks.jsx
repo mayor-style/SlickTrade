@@ -5,9 +5,13 @@ const HowItWorks = () => {
 
   const user = [
     {index:1, title: 'SignUp and Get Verified', text: 'Create your account, and verify your identity for a secure experience'},
-    {index:2, title: 'Choose Your Transaction', text: 'Specify your needs, select paymnet methods, and initiate a transaction'},
+
+    {index:2, title: 'Choose Your Transaction', text: 'Specify your needs, select payment methods, and initiate a transaction'},
+
     {index:3, title: 'Get Matched With Trusted Vendors', text: 'Our smart algorithm connects you with the best vendors in real time'},
+
     {index:4, title: 'Complete The Deal Safely', text: 'Your transactions are safeguarded with our escrow system. Ensuring risk-free transactions.'},
+
     {index:5, title: 'Finalize And Rate Your Experience', text: 'Recieve your funds seamlessly to your preffered account or wallet, rate the vendor, and grow the SlickTrade community.'},
   ]
 
@@ -24,7 +28,7 @@ const HowItWorks = () => {
   ]
 
   return (
-    <section className='bg-black min-h-screen py-[100px] px-[20px]'>
+    <section className='bg-black min-h-screen py-[100px] px-[20px] overflow-hidden'>
       <h1 className='text-center text-white sm:text-4xl text-3xl max-xs:text-2xl font-bold'>How <span>Slick</span>Trade Works</h1>
       <div className="py-2 flex items-center gap-5 mt-5 px-3 bg-gray border border-gray rounded-full m-auto w-fit ">
       <p className='bg-[gold] text-sm font-medium text-black px-3 py-1 max-xs:text-xs rounded-full cursor-pointer'>For Users</p>
@@ -38,8 +42,8 @@ const HowItWorks = () => {
             return <div key={x.index} className="border-b-2 flex gap-5 items-center just border-gray pb-2">       
               <h1 className=' l:text-3xl max-xs:text-xl text-2xl'>{x.index}</h1>
             <div className="">
-            <h1 className='l:text-2xl max-xs:text-lg text-xl font-semibold'> {x.title}</h1>    
-            <p className='max-l:text-sm max-xs:text-xs'>{x.text}</p>
+            <h1 className='l:text-2xl max-xs:text-lg text-xl font-semibold mb-2'> {x.title}</h1>    
+            <p className='max-l:text-sm max-xs:text-xs tracking-wide'>{x.text}</p>
             </div>
           </div>
           })
@@ -47,7 +51,7 @@ const HowItWorks = () => {
       </div>
 
       <div className="sm:h-[500px] h-[300px] m-auto">
-        <img src={how_work} className='sm:max-w-[500px] max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-gray border-dashed rounded-b-xl' alt="How it works image" />
+        <img src={how_work} className='sm:max-w-[500px] max-w-[400px] max-xs:max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-gray border-dashed rounded-b-xl' alt="How it works image" />
       </div>
       </div>
     </section>
