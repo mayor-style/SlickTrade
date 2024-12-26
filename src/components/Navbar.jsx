@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className='p-4 justify-between fixed top-0 left-0 right-0 flex lg:justify-around w-full items-center text-white bg-[rgba(0,0,0,0.5)] backdrop-blur-xl z-20 shadow-md shadow-light-black border-b border-gray'>
+    <nav className='p-4 justify-between fixed top-0 left-0 right-0 flex lg:justify-around w-full items-center text-white bg-[rgba(0,0,0,0.5)] backdrop-blur-xl z-50 shadow-md shadow-light-black border-b border-gray'>
       <div className="flex justify-center items-center gap-1 lg:w-full">
         <img src={logo} alt="SlickTrade Logo" className='sm:max-w-12 h-auto max-w-10' />
         <h1 className='tracking-wide sm:text-xl text-lg font-semibold'>SlickTrade</h1>

@@ -5,7 +5,7 @@ const CTA = () => {
   return (
     <section className='py-[100px] bg-gray px-[20px] text-center text-white flex flex-col gap-5'>
       <h1 className='sm:text-4xl text-3xl max-xs:text-2xl font-bold text-center'><span>Ready</span> to Experience Secure <span>Trading?</span></h1>
-      <p>
+      <p className='tracking-wide max-sm:text-sm'>
         Join the the thousands of users and vendors experiencing secure, seamless trading on SlickTrade.
       </p>
     <div className="w-fit m-auto">

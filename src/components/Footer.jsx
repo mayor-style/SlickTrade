@@ -5,18 +5,18 @@ const Footer = () => {
   return (
     <footer className='flex text-white  justify-between py-[50px] px-[20px]'>
       <div className="">
-        <h1 className='mb-3'>Company Info</h1>
-        <ul>
-          <li><Link> About Us </Link></li>
-          <li><Link> Contact Us </Link></li>
+        <h1 className='mb-3'>Company INFO</h1>
+        <ul className='text-[#c2c2c2]'>
+          <li className='hover:text-[gold] transition-all duration-500'><Link> About Us </Link></li >
+          <li className='hover:text-[gold] transition-all duration-500'><Link> Contact Us </Link></li >
         </ul>
       </div>
 
       <div className="">
-        <h1 className='mb-3'>Legal</h1>
-        <ul>
-          <li><Link> Terms of Service </Link></li>
-          <li><Link> Privacy Policy </Link></li>
+        <h1 className='mb-3'>LEGAL</h1>
+        <ul className='text-[#c2c2c2]'>
+          <li className='hover:text-[gold] transition-all duration-500'><Link> Terms of Service </Link></li>
+          <li className='hover:text-[gold] transition-all duration-500'><Link> Privacy Policy </Link></li>
         </ul>
       </div>
     </footer>

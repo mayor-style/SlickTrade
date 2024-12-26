@@ -32,11 +32,11 @@ const Testimonial = () => {
           <h2 className="sm:text-4xl text-3xl max-xs:text-2xl font-bold">Reviews and Comments</h2>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-[50px] px-12">
+        <div className="flex flex-wrap justify-center items-center gap-[50px] ">
           {testimony.map((testify) => (
             <div
               key={testify.id}
-              className="relative w-[350px] h-auto rounded-lg border bg-black p-6 transition duration-500 hidden-sec text-white group  hover:border-black hover:bg-[gold] hover:shadow-xl hover:bg-opacity-70 hover:text-blac border-dashed border-[gold]"
+              className="relative max-w-[350px] h-auto rounded-lg border bg-black p-6 transition duration-500 hidden-sec text-white group  hover:border-black hover:bg-[gold] hover:shadow-xl hover:bg-opacity-70 hover:text-blac border-dashed border-[gold]"
             >
               <div className="absolute transition duration-500  top-[-25px] right-5 text-[gold] group-hover:text-white opacity-90 text-4xl">
                 <FaQuoteRight />
