@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import userImg from '../../assets/imgs/vendor1.jpg';
 import vendorImg from '../../assets/imgs/user2.jpg';
+import useOnScreenAnimation from '../UseOnScreenAnimation';
 
 const HowItWorks = () => {
+  useOnScreenAnimation("hidden-fadeRight", "show-fadeRight")
+  useOnScreenAnimation("hidden-fadeLeft", "show-fadeLeft")
+
+
   // State for managing the active tab
   const [activeTab, setActiveTab] = useState('user');
 
@@ -54,7 +59,7 @@ const HowItWorks = () => {
 
       <div className="flex max-lg:flex-col gap-7 items-center justify-center">
         {/* Content Section */}
-        <div className="flex flex-col mt-10 gap-6 text-white max-lg:w-full">
+        <div className="flex flex-col hidden-fadeLeft mt-10 gap-6 text-white max-lg:w-full">
           {content.map((x) => (
             <div key={x.index} className="border-b-2 flex gap-5 items-center border-gray pb-2">
               <h1 className="l:text-3xl max-xs:text-xl text-2xl">{x.index}</h1>
@@ -69,7 +74,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Image Section */}
-        <div className="sm:h-[450px] max-lg:flex max-lg:items-center max-lg:justify-center max-lg:w-full h-[300px] m-auto relative">
+        <div className="sm:h-[450px] max-lg:flex max-lg:items-center hidden-fadeRight max-lg:justify-center max-lg:w-full h-[300px] m-auto relative">
           <img
             src={image}
             className="sm:max-w-[450px] max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-gray border-dashed rounded-b-xl"

@@ -1,8 +1,10 @@
 import React from 'react'
 import { FaQuoteRight } from "react-icons/fa";
 import DP from '../../assets/imgs/user.jpg'
+import useOnScreenAnimation from '../UseOnScreenAnimation';
 
 const Testimonial = () => {
+  useOnScreenAnimation("hidden-scale", "show-scale")
 
     const testimony= [
         {
@@ -36,8 +38,19 @@ const Testimonial = () => {
           {testimony.map((testify) => (
             <div
               key={testify.id}
-              className="relative max-w-[350px] h-auto rounded-lg border bg-black p-6 transition duration-500 hidden-sec text-white group  hover:border-black hover:bg-[gold] hover:shadow-xl hover:bg-opacity-70 hover:text-blac border-dashed border-[gold]"
+              className="relative hidden-scale max-w-[350px] h-auto rounded-lg border bg-black p-6 transition duration-500 hidden-sec text-white group  hover:border-black hover:bg-[gold] hover:shadow-xl hover:bg-opacity-70 hover:text-blac border-dashed border-[gold]"
             >
+              <div className="flex items-center mb-2 gap-6">
+                <img
+                  src={DP}
+                  alt="Profile"
+                  className="h-12 w-12 rounded-full"
+                />
+                <div>
+                  <h6 className="font-semibold">@{testify.name}</h6>
+                  <p className=" text-sm transition duration-500 my-1 bg-gold text-black font-semibold text-center rounded-full group-hover:font-medium group-hover:bg-black group-hover:text-white">{testify.status}</p>
+                </div>
+              </div>
               <div className="absolute transition duration-500  top-[-25px] right-5 text-[gold] group-hover:text-white opacity-90 text-4xl">
                 <FaQuoteRight />
               </div>
@@ -46,17 +59,7 @@ const Testimonial = () => {
                  {testify.review}
                 </p>
               </div>
-              <div className="flex items-center gap-6">
-                <img
-                  src={DP}
-                  alt="Profile"
-                  className="h-12 w-12 rounded-full"
-                />
-                <div>
-                  <h6 className="font-medium">{testify.name}</h6>
-                  <p className=" text-sm transition duration-500   group-hover:font-medium group-hover:text-black ">{testify.status}</p>
-                </div>
-              </div>
+              
             </div>
           ))}
         </div>

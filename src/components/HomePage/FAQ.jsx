@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import useOnScreenAnimation from '../UseOnScreenAnimation';
 
 const FAQ = () => {
+  useOnScreenAnimation("hidden-sec", "show-sec")
 
     const FaqInfo = [
 
@@ -28,7 +30,7 @@ const FAQ = () => {
        {/* FAQ Content Section */}
        <div
         id="faq_Con"
-        className="flex flex-col justify-between w-full gap-7 px-5 py-10 mt-10 rounded-lg shadow-xl md:px-10 md:w-[95%] max-sm:py-7 max-xs:py-5 m-auto border border-dashed border-[gold]  bg-gray transition-all duration-700"
+        className="flex hidden-sec flex-col justify-between w-full gap-7 px-5 py-10 mt-10 rounded-lg shadow-xl md:px-10 md:w-[95%] max-sm:py-7 max-xs:py-5 m-auto border border-dashed border-[gold]  bg-gray transition-all duration-700"
       >
         {FaqInfo.map((item, index) => (
           <div className="pb-7 border-b border-[rgb(94,94,94)]  max-xs:pb-5" id="Faq" key={index}>

@@ -1,8 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import logo from '../../assets/imgs/logo.png'
+import useOnScreenAnimation from '../../components/UseOnScreenAnimation';
 
 const SignUpLoginPage = () => {
+  useOnScreenAnimation("hidden-scale", "show-scale")
+  
   return (
     <main className='py-[100px] flex w-[100%] px-[10px] min-h-screen m-auto bg-hero bg-cover bg-center relative'>
     {/* Black Overlay */}

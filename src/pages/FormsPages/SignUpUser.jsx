@@ -20,26 +20,14 @@ const SignUpUser = () => {
           Join a secure community of users, receive payments effortlessly, and take control of your international transactions.
         </p>
 
-        <form className="mt-5">
-          {/* First Name */}
-          <div className="mb-4 text-left">
-            <label htmlFor="firstName" className="block text-sm mb-1">First Name</label>
+        <form className="mt-5 max-xs:text-sm">
+          {/* Full Name */}
+          <div className="mb-4 text-left ">
+            <label htmlFor="fullName" className="block text-sm mb-1">Full Name </label>
             <input
               type="text"
-              id="firstName"
-              placeholder="Enter your first name"
-              required
-              className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
-            />
-          </div>
-
-          {/* Last Name */}
-          <div className="mb-4 text-left">
-            <label htmlFor="lastName" className="block text-sm mb-1">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              placeholder="Enter your last name"
+              id="fullName"
+              placeholder="Enter your full name"
               required
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />

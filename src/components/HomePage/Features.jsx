@@ -1,8 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
 import { faShieldAlt, faStopwatch, faWallet, faHeadphones, faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import useOnScreenAnimation from '../UseOnScreenAnimation';
 
 const Features = () => {
+  useOnScreenAnimation("hidden-scale", "show-scale")
+
   const featureInfo = [
     {
       id: 1,
@@ -44,7 +47,7 @@ const Features = () => {
 
       <div className="grid mt-[80px] sm:grid-cols-2 lg:grid-cols-3 gap-[50px] xs:px-6">
         {featureInfo.map((feature) => (
-          <div key={feature.id} className="bg-transparent border-[gold] border-dashed  border shadow-lg rounded-lg px-5 py-10 text-center">
+          <div key={feature.id} className="hidden-scale bg-transparent border-[gold] border-dashed  border shadow-lg rounded-lg px-5 py-10 text-center">
             <div className="text-[gold]  bg-black px-1 py-2 text-4xl w-fit m-auto mt-[-60px]">
               <FontAwesomeIcon icon={feature.icon} /> {/* Use the imported component here */}
             </div>
