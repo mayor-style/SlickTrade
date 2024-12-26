@@ -59,9 +59,9 @@ const HowItWorks = () => {
 
       <div className="flex max-lg:flex-col gap-7 items-center justify-center">
         {/* Content Section */}
-        <div className="flex flex-col hidden-fadeLeft mt-10 gap-6 text-white max-lg:w-full">
+        <div className="flex flex-col  mt-10 gap-6 text-white max-lg:w-full">
           {content.map((x) => (
-            <div key={x.index} className="border-b-2 flex gap-5 items-center border-gray pb-2">
+            <div key={x.index} className="border-b-2 hidden-fadeLeft flex gap-5 items-center border-gray pb-2">
               <h1 className="l:text-3xl max-xs:text-xl text-2xl">{x.index}</h1>
               <div>
                 <h1 className="tracking-wide l:text-2xl max-xs:text-lg text-xl font-semibold mb-2">

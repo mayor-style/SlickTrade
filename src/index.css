@@ -20,6 +20,7 @@ p{
 .hidden-fadeRight{
     opacity: 0;
     filter: blur(5px);
+    transition: all .8s;
    transform-origin: right;
     transform:translateX(100%);
  }
@@ -29,12 +30,13 @@ p{
      filter: blur(0);
      transform: translateY(0%);
      transform-origin: right;
-     transition: all .5s ease-in;
+     transition: all .8s ease-in;
  }
 
 .hidden-fadeLeft{
     opacity: 0;
     filter: blur(5px);
+    transition: all .8s ease;
    transform-origin: right;
     transform:translateX(-100%);
  }
@@ -44,13 +46,14 @@ p{
      filter: blur(0);
      transform: translateY(0%);
      transform-origin: right;
-     transition: all .5s ease-in;
+     transition: all .8s ease;
  }
 
  .hidden-scale{
     opacity: 0;
     transition: all 1s;
     filter: blur(5px);
+    transition: all .8s ease;
    transform-origin: center;
     transform:scale(0.5);
  }
@@ -59,13 +62,14 @@ p{
      opacity: 1;
      filter: blur(0);
      transform: scale(1);
+     transition: all.8s ease;
      transform-origin: bottom;
  }
 
 
  .hidden-sec{
     opacity: 0;
-    transition: all 1s;
+    transition: all .8s ease;
     filter: blur(5px);
    transform-origin: bottom;
     transform:translateY(25%);
@@ -74,6 +78,7 @@ p{
  .show-sec{
      opacity: 1;
      filter: blur(0);
+     transition: all .8s ease;
      transform: translateY(0%);
      transform-origin: top;
  }
