@@ -6,10 +6,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero': "url(https://res.cloudinary.com/dscpwrzng/image/upload/f_auto,q_auto,w_1920,c_fill/v1735142489/photo_2024-07-11_01-20-45_fnssws.jpg)"
+        'hero': "url('https://res.cloudinary.com/dscpwrzng/image/upload/f_auto,q_auto,w_1920,c_fill/v1735142489/photo_2024-07-11_01-20-45_fnssws.jpg')"
       },
       colors:{
-        "gray": " rgba(225, 225, 225, .1)",
+        "gray": " #231E23",
         "light-black": "rgba(0,0,0,0.5)]",
       },
       screens:{

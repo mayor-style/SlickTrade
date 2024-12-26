@@ -72,7 +72,7 @@ const HowItWorks = () => {
         <div className="sm:h-[450px] max-lg:flex max-lg:items-center max-lg:justify-center max-lg:w-full h-[300px] m-auto relative">
           <img
             src={image}
-            className="sm:max-w-[450px] max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-slate-800 border-dashed rounded-b-xl"
+            className="sm:max-w-[450px] max-w-[300px] h-full object-cover rounded-t-full border border-[gold] shadow-xl shadow-gray border-dashed rounded-b-xl"
             alt="How it works"
           />
           <div className="absolute bg-black h-full w-full top-0 rounded-t-full bg-opacity-10"></div>
