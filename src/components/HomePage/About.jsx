@@ -22,20 +22,20 @@ const About = () => {
         <p className='sm:tracking-wide tracking-wider text-xs sm:text-sm leading-relaxed'>At SlickTrade, we prioritize your peace of mind. Our platform is crafted to enable safe, fast, and reliable international transactions for users and vendors alike. Whether you’re a business owner, a user recieving funds or a vendor facilitating transactions, we prioritize your trust and security at every step.</p>
 
         <div className="flex flex-col gap-5 mt-5">
-         <div className="flex text-[15px] sm:text-lg tracking-wide items-center gap-2">
+         <div className="flex text-[17px] sm:text-lg tracking-wide items-center gap-2">
          <RiShieldCheckFill color='gold' />
          <h1 >Secured escrow sysytem to protect your transactions.</h1>
          </div>
-         <div className="flex text-[15px] sm:text-lg tracking-wide items-center gap-2">
+         <div className="flex text-[17px] sm:text-lg tracking-wide items-center gap-2">
          <HiOutlineCurrencyDollar  color='gold'/>
          <h1>Transparent rates and no hidden fees.</h1>
          </div>
-         <div className="flex items-center text-[15px] tracking-wide sm:text-lg gap-2">
+         <div className="flex items-center text-[17px] tracking-wide sm:text-lg gap-2">
          <IoNotificationsOutline  color='gold' />
          <h1>Real-time notifications and insights for seamless trading.
          </h1>
          </div>
-         <div className="flex text-[15px] tracking-wide items-center sm:text-lg gap-2">
+         <div className="flex text-[17px] tracking-wide items-center sm:text-lg gap-2">
          <AiOutlineLock  color='gold'/>
          <h1>Privacy-first approach, keeping your activities confidential.
          </h1>

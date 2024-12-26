@@ -1,16 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import logo from '../assets/imgs/logo.png'
+import logo from '../../assets/imgs/logo.png'
 
 const SignUpLoginPage = () => {
   return (
-    <main className='py-[100px] flex w-[100%] px-[15px] min-h-screen m-auto bg-hero bg-cover bg-center relative'>
+    <main className='py-[100px] flex w-[100%] px-[10px] min-h-screen m-auto bg-hero bg-cover bg-center relative'>
     {/* Black Overlay */}
     <div className="left-0 absolute hidden h-full w-full top-0 bg-black opacity-70 z-1"></div>
   
    {/* Form Container */}
 <div 
-  className="bg-light-black backdrop-blur-sm border border-gold border-dashed hidden-scale transition-all py-6 px-6 md:px-12 max-w-[90%] sm:max-w-md lg:max-w-lg text-sm sm:text-base flex items-center flex-col justify-center m-auto rounded-lg shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] relative"
+  className="bg-light-black backdrop-blur-sm border border-gold border-dashed hidden-scale transition-all py-10 px-5 md:px-12 max-w-[90%] sm:max-w-md lg:max-w-lg text-sm sm:text-base flex items-center flex-col justify-center m-auto rounded-lg shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] relative"
   id='formContainer'>
   
   {/* Title */}
@@ -34,7 +34,7 @@ const SignUpLoginPage = () => {
 
     {/* Sign up as Vendor */}
     <Link 
-      to={'/become-a-vendor'} 
+      to={'/signup-vendor'} 
       className='text-center w-full max-w-[80%] border border-dashed border-dark-gray text-white bg-gray rounded-full py-3 md:py-4 active:opacity-90 hover:opacity-80 transition duration-200 ease-in-out'>
       Sign up as a Vendor
     </Link>
