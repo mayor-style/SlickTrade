@@ -11,10 +11,17 @@ module.exports = {
       colors:{
         "gray": " #231E23",
         "light-black": "rgba(0,0,0,0.5)]",
+        "gold": '#FFD700', // Gold hex code
+        "dark-gray": "rgb(94,94,94)",
+        darkGold: '#B8860B', // Darker gold shade,
+
       },
       screens:{
         'xs':'480px',
         "l":"1130px"
+      },
+      boxShadow: {
+        'gold-shadow': '0px 4px 10px 2px rgba(255, 215, 0, 0.4), 0px 7px 20px rgba(184, 134, 11, 0.4)',
       },
     },
   },
