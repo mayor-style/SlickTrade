@@ -1,26 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaFacebook, FaGoogle, FaTwitter, FaLock } from 'react-icons/fa'; // Example header icon
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaFacebook, FaGoogle, FaTwitter, FaLock } from 'react-icons/fa';
 
 const SignIn = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate a 3-second delay
+    setTimeout(() => {
+      setIsSubmitting(false);
+      navigate('/'); // Navigate to the home page
+    }, 3000);
+  };
+
   return (
     <div className="relative bg-hero w-full min-h-screen bg-cover bg-center bg-no-repeat px-4 py-12">
       {/* Overlay */}
       <div className="absolute hidden inset-0 bg-black opacity-50"></div>
 
       {/* Sign In Container */}
-      <div className="relative  backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-8 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
+      <div className="relative backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-8 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
         {/* Header Icon */}
         <div className="text-gold text-5xl flex justify-center mb-4">
           <FaLock /> {/* Header Icon */}
         </div>
-        
+
         <h1 className="text-3xl max-sm:text-2xl font-bold text-gold mb-2">Welcome Back!</h1>
         <p className="pb-5 text-sm border-b max-xs:text-xs tracking-wide border-dark-gray">
           Securely login to manage your transactions, connect with vendors / users, and keep track of progress.
         </p>
 
-        <form className="mt-5">
+        <form className="mt-5" onSubmit={handleSubmit}>
           {/* Email Field */}
           <div className="mb-4 text-left">
             <label htmlFor="email" className="block text-sm mb-1">Email</label>
@@ -61,9 +75,19 @@ const SignIn = () => {
 
           <button
             type="submit"
-            className="w-full bg-gold text-black py-2 rounded-md hover:bg-yellow-500 transition duration-200"
+            className={`w-full text-black py-2 rounded-md ${
+              isSubmitting ? 'bg-gray-500 cursor-not-allowed' : 'bg-gold hover:bg-yellow-500'
+            } transition duration-200`}
+            disabled={isSubmitting}
           >
-            Sign In
+            {isSubmitting ? (
+              <span className="flex items-center  justify-center gap-2">
+                <span className="animate-spin rounded-full border-2 border-white border-t-transparent w-5 h-5"></span>
+                Logging in...
+              </span>
+            ) : (
+              'Sign In'
+            )}
           </button>
         </form>
 

@@ -21,6 +21,15 @@ const EmailVerifyResult = () => {
         return () => clearTimeout(redirectTimeout);
       }, 3000);
       return () => clearTimeout(successTimeout);
+    }else if(status === 'failed' ) {
+        const failedTimeout = setTimeout(() => {
+            setRedirecting(true);
+            const redirectTimeout = setTimeout(() => {
+              navigate('/email-verification'); // Redirect to Reverify email
+            }, 3000);
+            return () => clearTimeout(redirectTimeout);
+          }, 3000);
+          return () => clearTimeout(failedTimeout);
     }
   }, [status, navigate]);
 
@@ -35,8 +44,8 @@ const EmailVerifyResult = () => {
         id='verificationResultContainer'>
 
         {/* Header */}
-        <div className="text-center pb-8">
-          <div className="flex items-center justify-center gap-1 pb-1"> 
+        <div className="text-center  pb-4">
+          <div className="flex items-center  justify-center gap-1 pb-1"> 
             <img src={logo} alt="logo" className='w-12 h-auto sm:w-16' />
             <h1 className='font-bold text-2xl sm:text-4xl text-center text-white'>
               <span>Slick</span>Trade
@@ -48,19 +57,26 @@ const EmailVerifyResult = () => {
         <div className="text-center text-white">
           {status === 'success' ? (
             <>
-              <h2 className='text-3xl text-gold font-semibold'>Email Verified Successfully!</h2>
-              <p className='mt-3'>Your email has been verified. Redirecting you to your dashboard...</p>
-              {redirecting && <Spinner message="Redirecting to Dashboard..." />} {/* Show spinner during redirect */}
+              <h2 className='text-3xl text-gold bold'>Email Verified Successfully</h2>
+              <p className='my-3'>Your email has been verified. You will be redirected to your dashboard...</p>
+
+               {/* Show spinner during redirect */}
+               {redirecting && 
+             <div className="bg-gray p-3 rounded-lg border-dark-gray">
+            <Spinner  message="Redirecting to Your User Dashboard..." />
+             </div>
+             }
             </>
           ) : (
             <>
               <h2 className='text-3xl text-red-600 font-semibold'>Email Verification Failed</h2>
-              <p className='mt-3'>We could not verify your email. Please try again.</p>
-              <Button
-                text={'Retry Email Verification'}
-                onClick={() => navigate('/email-verification')}
-                className='mt-5 outline-none w-full max-w-[80%] text-center text-white bg-gray border border-dashed border-dark-gray rounded-full py-3 md:py-4 active:opacity-90 hover:opacity-80 transition duration-200 ease-in-out'
-              />
+              <p className='my-3'>We could not verify your email. You will be redirected to Re-verify</p>
+               {/* Show spinner during redirect */}
+               {redirecting && 
+             <div className="bg-gray p-3 rounded-lg border-dark-gray">
+            <Spinner  message="Redirecting to Re-Verify your email..." />
+             </div>
+             }
             </>
           )}
         </div>

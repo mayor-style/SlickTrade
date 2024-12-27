@@ -20,7 +20,7 @@ const HowItWorks = () => {
   ];
 
   const vendor = [
-    { index: 1, title: 'Create and Verify Your Vendor Account', text: 'Link your payment methods and set up your business profile.' },
+    { index: 1, title: 'SignUp, Get Verified, Create and Verify Your Vendor Account', text: 'Link your payment methods and set up your business profile.' },
     { index: 2, title: 'Fund Your Collateral', text: 'Maintain an active balance to participate in transactions securely.' },
     { index: 3, title: 'Accept Offers and Get Paid', text: 'Respond to transaction requests, confirm payments, and earn while providing value.' },
     { index: 4, title: 'Build Your Reputation', text: 'Gain ratings, attract more deals, and climb the ranks of trusted vendors.' },

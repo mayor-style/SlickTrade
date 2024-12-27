@@ -9,7 +9,7 @@ import SignIn from './pages/FormsPages/SignIn';
 import SignUpUser from './pages/FormsPages/SignUpUser';
 import SignUpVendor from './pages/FormsPages/SignUpVendor';
 import ResetPassword from './pages/FormsPages/ResetPass';
-import EmailVerify from './pages/FormsPages/EmailVerify';
+import VerifyEmail from './pages/FormsPages/VerifyEmail';
 import EmailVerifyResult from './pages/FormsPages/EmailVerifyResult';
 
 
@@ -39,7 +39,7 @@ function App() {
         <Route path="/signup-user" element={<SignUpUser />} />
         <Route path="/signup-vendor" element={<SignUpVendor />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/email-verification" element={<EmailVerify />} />
+        <Route path="/email-verification" element={<VerifyEmail />} />
         <Route path="/email-verification-result" element={<EmailVerifyResult />} />
         {/* Add more routes here as needed */}
       </Routes>

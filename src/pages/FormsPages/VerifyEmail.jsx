@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/imgs/logo.png';
 import Button from '../../components/Button';
 
-const EmailVerify = () => {
+const VerifyEmail = () => {
     const location = useLocation();
     const userEmail = location?.state?.Email || 'Your email';
 
@@ -33,7 +33,7 @@ const EmailVerify = () => {
 
                 {/* Main Content */}
                 <div className="text-center text-white">
-                    <h2 className='text-3xl text-gold font-semibold'>Verify Your Email!</h2>
+                    <h2 className='text-3xl text-gold font-semibold'>Verify Your Email</h2>
                     <p className='mt-3'>
                         We have sent a verification email to <strong className='text-white'>{userEmail}</strong>.
                     </p>
@@ -59,7 +59,7 @@ const EmailVerify = () => {
                 Change Email
                 </button>
 
-                {/* email success */}
+                {/* email result stimulate*/}
                 <Link
                     to={'/email-verification-result'}
                     className="w-full bg-gold text-black font-semibold py-2 rounded-md hover:bg-yellow-500 transition text-center duration-200"
@@ -79,4 +79,4 @@ const EmailVerify = () => {
     );
 };
 
-export default EmailVerify;
+export default VerifyEmail;

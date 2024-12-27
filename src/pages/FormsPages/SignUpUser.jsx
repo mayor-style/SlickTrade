@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaLock } from 'react-icons/fa'; // Importing the lock icon
+import Spinner from '../../components/Spinner'
 
 const SignUpUser = () => {
   const navigate = useNavigate(); 
@@ -272,7 +273,9 @@ const SignUpUser = () => {
             disabled={loading}
           >
             {loading ? (
-            <div className="loader m-auto text-center"></div>
+            <div className=" m-auto text-center">
+              <Spinner color={'black'} message={'Signing Up...'} />
+            </div>
           )  : (
             'SignUp'
           )}
