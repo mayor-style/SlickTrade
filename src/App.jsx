@@ -9,6 +9,9 @@ import SignIn from './pages/FormsPages/SignIn';
 import SignUpUser from './pages/FormsPages/SignUpUser';
 import SignUpVendor from './pages/FormsPages/SignUpVendor';
 import ResetPassword from './pages/FormsPages/ResetPass';
+import EmailVerify from './pages/FormsPages/EmailVerify';
+import EmailVerifyResult from './pages/FormsPages/EmailVerifyResult';
+
 
 function App() {
   const location = useLocation(); // Hook to get the current route
@@ -17,6 +20,7 @@ function App() {
                                   '/signup-user',
                                   '/signup-vendor',
                                   '/reset-password',
+                                  '/email-verification'
                                 
                                 ]; // Routes where Navbar and Footer should be hidden
 
@@ -35,6 +39,8 @@ function App() {
         <Route path="/signup-user" element={<SignUpUser />} />
         <Route path="/signup-vendor" element={<SignUpVendor />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/email-verification" element={<EmailVerify />} />
+        <Route path="/email-verification-result" element={<EmailVerifyResult />} />
         {/* Add more routes here as needed */}
       </Routes>
 

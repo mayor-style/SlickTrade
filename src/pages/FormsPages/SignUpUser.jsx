@@ -1,8 +1,143 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaLock } from 'react-icons/fa'; // Importing the lock icon
 
 const SignUpUser = () => {
+  const navigate = useNavigate(); 
+
+  // Form data collection declaration
+  const [formData, setFormData] = useState({
+    fullName: '',
+    Email: '',
+    Phone: '', 
+    username: '',
+    Password: '',
+    confirmPassword: '',
+  });
+
+  // Declare error texts for each input
+  const [errors, setErrors] = useState({
+    fullName: '',
+    Email: '',
+    Phone: '',
+    username: '',
+    Password: '',
+    confirmPassword: '',
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [backendError, setBackendError] = useState('');
+
+  // VALIDATE PASSWORD RULES ARE FOLLOWED
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // VALIDATE ALL FORM INPUTS
+  const validateForm = () => {
+    let formErrors = { ...errors };
+    let isValid = true;
+
+    if (!formData.fullName) {
+      formErrors.fullName = 'Full Name is required.';
+      isValid = false;
+    } else {
+      formErrors.fullName = '';
+    }
+
+    if (!formData.Email) {
+      formErrors.Email = 'Email is required.';
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Email)) {
+      formErrors.Email = 'Invalid email format.';
+      isValid = false;
+    } else {
+      formErrors.Email = '';
+    }
+
+    if (!formData.Phone) {
+      formErrors.Phone = 'Phone number is required.';
+      isValid = false;
+    } else if (!/^\d+$/.test(formData.Phone)) {
+      formErrors.Phone = 'Phone number must contain only digits.';
+      isValid = false;
+    } else {
+      formErrors.Phone = '';
+    }
+
+    if (!formData.username) {
+      formErrors.username = 'Username is required.';
+      isValid = false;
+    } else {
+      formErrors.username = '';
+    }
+
+    if (!formData.Password) {
+      formErrors.Password = 'Password is required.';
+      isValid = false;
+    } else if (!validatePassword(formData.Password)) {
+      formErrors.Password = 'Password must be at least 6 characters long, contain at least one letter, one number, and one special character.';
+      isValid = false;
+    } else {
+      formErrors.Password = '';
+    }
+
+    if (formData.Password !== formData.confirmPassword) {
+      formErrors.confirmPassword = 'Passwords do not match.';
+      isValid = false;
+    } else {
+      formErrors.confirmPassword = '';
+    }
+
+    setErrors(formErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      setLoading(true); // Show loading spinner
+      setBackendError(''); // Reset any previous backend error message
+
+      const dataToSend = {
+        fullName: formData.fullName,
+        Email: formData.Email,
+        Phone: formData.Phone,
+        username: formData.username,
+        Password: formData.Password,
+      };
+
+      try {
+        // Simulating a delay for API call
+        setTimeout(() => {
+          setLoading(false); // Hide loading spinner
+          navigate('/email-verification', { state: dataToSend });
+        }, 3000);
+      } catch (error) {
+        setLoading(false); // Hide loading spinner
+        if (error.response) {
+          // Backend responded with an error
+          setBackendError(error.response.data.message || 'Something went wrong. Please try again.');
+        } else if (error.request) {
+          // No response received from the server
+          setBackendError('Server unavailable. Please check your internet connection and try again.');
+        } else {
+          // General error during setup or sending request
+          setBackendError('An unexpected error occurred. Please try again.');
+        }
+      }
+    }
+  };
+
   return (
     <div className="relative bg-hero w-full min-h-screen bg-cover bg-center bg-no-repeat px-4 py-12">
       {/* Overlay */}
@@ -10,7 +145,6 @@ const SignUpUser = () => {
 
       {/* Sign Up Container */}
       <div className="relative backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-8 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
-        {/* Icon Above Header */}
         <div className="flex justify-center mb-3">
           <FaLock className="text-5xl text-gold" />
         </div>
@@ -20,41 +154,50 @@ const SignUpUser = () => {
           Join a secure community of users, receive payments effortlessly, and take control of your international transactions.
         </p>
 
-        <form className="mt-5 max-xs:text-sm">
+        <form onSubmit={handleSubmit} className="mt-5 max-xs:text-sm">
           {/* Full Name */}
-          <div className="mb-4 text-left ">
-            <label htmlFor="fullName" className="block text-sm mb-1">Full Name </label>
+          <div className="mb-4 text-left">
+            <label htmlFor="fullName" className="block text-sm mb-1">Full Name</label>
             <input
               type="text"
               id="fullName"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
               placeholder="Enter your full name"
-              required
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />
+            {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
           </div>
 
           {/* Email */}
           <div className="mb-4 text-left">
-            <label htmlFor="email" className="block text-sm mb-1">Email</label>
+            <label htmlFor="Email" className="block text-sm mb-1">Email</label>
             <input
               type="email"
-              id="email"
+              id="Email"
+              name="Email"
+              value={formData.Email}
+              onChange={handleChange}
               placeholder="Enter your email"
-              required
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />
+            {errors.Email && <p className="text-red-500 text-xs mt-1">{errors.Email}</p>}
           </div>
 
           {/* Phone */}
           <div className="mb-4 text-left">
-            <label htmlFor="phone" className="block text-sm mb-1">Phone Number</label>
+            <label htmlFor="Phone" className="block text-sm mb-1">Phone Number</label>
             <input
               type="tel"
-              id="phone"
+              id="Phone"
+              name="Phone"
+              value={formData.Phone}
+              onChange={handleChange}
               placeholder="Enter your phone number"
-              required
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />
+            {errors.Phone && <p className="text-red-500 text-xs mt-1">{errors.Phone}</p>}
           </div>
 
           {/* Username */}
@@ -63,22 +206,28 @@ const SignUpUser = () => {
             <input
               type="text"
               id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
               placeholder="Choose a username"
-              required
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />
+            {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
           </div>
 
           {/* Password */}
           <div className="mb-4 text-left">
-            <label htmlFor="password" className="block text-sm mb-1">Password</label>
+            <label htmlFor="Password" className="block text-sm mb-1">Password</label>
             <input
               type="password"
-              id="password"
+              id="Password"
+              name="Password"
+              value={formData.Password}
+              onChange={handleChange}
               placeholder="Create a password"
-              required
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />
+            {errors.Password && <p className="text-red-500 text-xs mt-1">{errors.Password}</p>}
           </div>
 
           {/* Confirm Password */}
@@ -87,10 +236,14 @@ const SignUpUser = () => {
             <input
               type="password"
               id="confirmPassword"
+              value={formData.confirmPassword}
               placeholder="Confirm your password"
               required
+              name='confirmPassword'
+              onChange={handleChange}
               className="w-full p-3 rounded-md border-dashed bg-gray text-white border border-dark-gray focus:ring-1 focus:ring-gold focus:outline-none"
             />
+            {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
           </div>
 
           {/* Terms and Conditions */}
@@ -109,12 +262,20 @@ const SignUpUser = () => {
             </label>
           </div>
 
+            {/* Display backend error message if there is any*/}
+          {backendError && <p className="text-red-500 text-xs mt-3">{backendError}</p>} 
+
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-gold text-black py-2 rounded-md hover:bg-yellow-500 transition duration-200"
+            className="w-full bg-gold text-black font-semibold py-2 rounded-md hover:bg-yellow-500 transition duration-200"
+            disabled={loading}
           >
-            Sign Up
+            {loading ? (
+            <div className="loader m-auto text-center"></div>
+          )  : (
+            'SignUp'
+          )}
           </button>
         </form>
 
