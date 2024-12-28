@@ -20,7 +20,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-full bg-hero bg-cover bg-center relative flex">
+    <div className="h-full bg-hero bg-cover bg-center relative flex ">
     
         <div className="absolute h-full w-full inset-0 backdrop-blur-sm"></div>
           {/* Sidebar */}
@@ -56,7 +56,7 @@ const Sidebar = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className=" flex-1 fixed right-0 flex-col z-1 h-full overflow-auto max-md:w-full user-right-dashboard" >
+      <div className="max-md:ml-0 flex-1 relative right-0 flex-col z-1 h-full overflow-auto max-md:w-full user-right-dashboard" >
         
         {/* Top Navbar */}
         <div className="flex px-4 justify-between h-[67px] sm:h-[77px] text-white border-b border-b-gray items-center">
