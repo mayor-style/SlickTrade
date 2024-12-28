@@ -11,28 +11,31 @@ import SignUpVendor from './pages/FormsPages/SignUpVendor';
 import ResetPassword from './pages/FormsPages/ResetPass';
 import VerifyEmail from './pages/FormsPages/VerifyEmail';
 import EmailVerifyResult from './pages/FormsPages/EmailVerifyResult';
-
+import Sidebar from './components/UserDashboard/Sidebar';
+import Dashboard from './pages/UserDashboardPages/Dashboard';
 
 function App() {
-  const location = useLocation(); // Hook to get the current route
-  const hideNavAndFooterRoutes = ['/signup-signin', 
-                                  '/login',
-                                  '/signup-user',
-                                  '/signup-vendor',
-                                  '/reset-password',
-                                  '/email-verification'
-                                
-                                ]; // Routes where Navbar and Footer should be hidden
+  const location = useLocation();
+  const hideNavAndFooterRoutes = [
+    '/signup-signin',
+    '/login',
+    '/signup-user',
+    '/signup-vendor',
+    '/reset-password',
+    '/email-verification',
+    '/email-verification-result',
+    '/user',
+  ];
 
-  const shouldHideNavAndFooter = hideNavAndFooterRoutes.includes(location.pathname);
+  const shouldHideNavAndFooter = hideNavAndFooterRoutes.some((route) =>
+    location.pathname.startsWith(route)
+  );
 
   return (
     <>
-      {/* Conditionally render Navbar */}
       {!shouldHideNavAndFooter && <Navbar />}
       <ScrollToTop />
       <Routes>
-        {/* Define your routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/signup-signin" element={<SignUpLoginPage />} />
         <Route path="/login" element={<SignIn />} />
@@ -41,16 +44,16 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/email-verification" element={<VerifyEmail />} />
         <Route path="/email-verification-result" element={<EmailVerifyResult />} />
-        {/* Add more routes here as needed */}
+        <Route path="/user" element={<Sidebar />}>
+          <Route index element={<Dashboard />} /> {/* Default */}
+          <Route path="dashboard" element={<Dashboard />} /> {/* Child */}
+        </Route>
       </Routes>
-
-      {/* Conditionally render Footer */}
       {!shouldHideNavAndFooter && <Footer />}
     </>
   );
 }
 
-// Wrap App with Router for `useLocation` to work
 export default function WrappedApp() {
   return (
     <Router>

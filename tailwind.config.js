@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     "./index.html",
@@ -10,7 +12,8 @@ module.exports = {
       },
       colors:{
         "gray": " #231E23",
-        "light-black": "rgba(0,0,0,0.5)]",
+        "glass":"rgba(225,225, 225, .1)",
+        "light-black": "rgba(0,0,0,0.5)",
         "gold": '#FFD700', // Gold hex code
         "dark-gray": "rgb(94,94,94)",
         darkGold: '#B8860B', // Darker gold shade,
@@ -25,5 +28,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

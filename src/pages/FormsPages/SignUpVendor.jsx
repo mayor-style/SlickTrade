@@ -145,10 +145,10 @@ const SignUpVendor = () => {
   return (
     <div className="relative bg-hero w-full min-h-screen bg-cover bg-center bg-no-repeat px-4 py-12">
       {/* Overlay */}
-      <div className="absolute hidden inset-0 bg-black opacity-50"></div>
+      <div className="absolute backdrop-blur-sm inset-0 "></div>
 
       {/* Sign Up Vendor Container */}
-      <div className="relative backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-8 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
+      <div className="relative backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-6 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
 
         <div className="flex justify-center mb-3">
           <FaBriefcase className="text-4xl text-gold" />
