@@ -147,7 +147,7 @@ const SignUpUser = () => {
       {/* Sign Up Container */}
       <div className="relative backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-8 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
         <div className="flex justify-center mb-3">
-          <FaLock className="text-5xl text-gold" />
+          <FaLock className="text-3xl text-gold" />
         </div>
 
         <h1 className="text-3xl max-sm:text-2xl font-bold text-gold mb-2">Get Started Today</h1>
@@ -247,21 +247,6 @@ const SignUpUser = () => {
             {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
           </div>
 
-          {/* Terms and Conditions */}
-          <div className="mb-6 text-left flex items-start gap-2">
-            <input
-              type="checkbox"
-              id="terms"
-              required
-              className="form-checkbox text-gold rounded-md bg-dark-gray border border-dark-gray focus:ring-1 focus:ring-gold"
-            />
-            <label htmlFor="terms" className="text-sm">
-              I agree to the{' '}
-              <Link to="/terms-and-conditions" className="text-gold hover:underline">
-                Terms and Conditions
-              </Link>
-            </label>
-          </div>
 
             {/* Display backend error message if there is any*/}
           {backendError && <p className="text-red-500 text-xs mt-3">{backendError}</p>} 

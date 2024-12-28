@@ -12,7 +12,7 @@ const ResetPassword = () => {
       <div className="relative backdrop-blur-sm bg-light-black shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] border border-gold border-dashed px-8 py-10 rounded-lg max-w-lg mx-auto text-center text-white">
         {/* Icon Above Header */}
         <div className="flex justify-center mb-3">
-          <FaKey className="text-5xl text-gold" />
+          <FaKey className="text-4xl text-gold" />
         </div>
 
         <h1 className="text-3xl max-sm:text-2xl font-bold text-gold mb-2">Reset Your Password</h1>
