@@ -98,10 +98,16 @@ p{
   }
 
   .user-right-dashboard{
-    width: calc(100% - 250px);
-    margin-left: 240px;
+    width: calc(100% - 270px);
+    margin-left: 260px;
   }
 
+
+  /* Prevent scrolling */
+  .scroll-lock {
+    overflow: hidden;
+    height: 100%;
+  }
 
   @media (max-width:1024px){
     .user-right-dashboard{

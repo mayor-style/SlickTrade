@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSearch, FaBell, FaQuestionCircle, FaUserCircle } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 import { FaWallet, FaCogs } from 'react-icons/fa';
@@ -14,6 +14,20 @@ const Sidebar = () => {
  
   const [isSearch, setIsSearch] =useState(false);
   const [isOpen, setIsopen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('scroll-lock');
+    } else {
+      document.body.classList.remove('scroll-lock');
+    }
+    // Cleanup on component unmount
+    return () => {
+      document.body.classList.remove('scroll-lock');
+    };
+  }, [isOpen]);
+
+
 
   const pages = [
     { name: "Dashboard", path: "/user/dashboard", icon: <RiDashboardLine /> },
@@ -32,13 +46,13 @@ const Sidebar = () => {
   return (
     <div className="h-full bg-hero bg-cover bg-center  relative flex ">
         {/*OVERLAY */}
-        <div className={`absolute h-full w-full inset-0  ${isOpen? 'max-md:z-10 backdrop-blur-lg'  : ''} backdrop-blur-sm`}></div>
+        <div className={`absolute h-full w-full inset-0  ${isOpen? 'max-md:z-10 backdrop-blur-lg '  : ''} backdrop-blur-sm`}></div>
 
             {/* BEGINNING OF SIDEBAR 😎😎 */}       
       <div className={`h-full transition-all ease-in-out duration-300 fixed z-10 top-0 left-0 flex flex-col ${isOpen ? 'max-xs:w-full max-md:flex transform origin-left z-20 max-md:w-[270px] bg-black bg-opacity-70 ':' transform origin-left max-md:hidden '}  border  backdrop-blur-md border-t-gray border-l-gray border-b-gray border-r-gray overflow-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray lg:max-w-[270px] max-lg:w-[110px] py-4 px-3 pb-10 `}>
 
          {/*HAMBURGER MENU */}
-         <div className="cursor-pointer w-fit md:hidden text-white transition-all ease-in-out hover:bg-gold hover:text-black duration-300 ml-5 text-center flex md:hdden text-3xl bg-glass rounded-full border border-dark-gray  p-2 items-center justify-center mb-7"
+         <div className="cursor-pointer w-fit md:hidden text-white transition-all ease-in-out hover:bg-gold hover:text-black duration-300 ml-5 text-center flex md:hdden text-2xl bg-glass rounded-full border border-dark-gray  p-2 items-center justify-center mb-7"
           onClick={()=>setIsopen(!isOpen)}
           >
              <IoMdClose className=''/>
@@ -74,7 +88,7 @@ const Sidebar = () => {
             {/* END OF SIDEBAR 😎😎 */}
 
             {/* MAIN CONTENT AREA 😎😎 */}
-      <div className="max-md:ml-0 flex-1 relative right-0 flex-col z-1 h-full overflow-auto max-md:w-full user-right-dashboard" >    
+      <div className={` max-md:ml-0 flex-1 relative right-0 flex-col z-1 h-full overflow-auto max-md:w-full user-right-dashboard`}  >    
         {/* Top Navbar */}
         <div className="flex px-4 justify-between h-[60px] md:h-[77px] text-white border-b border-b-gray items-center">
 
@@ -96,7 +110,7 @@ const Sidebar = () => {
         </div>
 
         {/* Search Input */}
-        <div className={`search-bar md:hidden border py-1 text-sm bg-gray px-3 transition-all ease-in-out duration-300 rounded-full justify-between flex gap-2 items-center ${isSearch? 'border-dark-gray': 'border-none bg-transparent' }`} >
+        <div className={`search-bar md:hidden border py-2 text-sm bg-gray px-3 transition-all ease-in-out duration-300 rounded-full justify-between flex gap-2 items-center ${isSearch? 'border-dark-gray': 'border-none bg-transparent' }`} >
             <input type="text" className={`outline-none ${ isSearch? '':'hidden' } w-[250px] bg-transparent`} placeholder="Search here..." />
             <button type="submit" onClick={()=>setIsSearch(!isSearch)} className={`text-lg font-medium`}>
               <FaSearch />
