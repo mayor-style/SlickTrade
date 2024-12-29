@@ -60,7 +60,7 @@ const Sidebar = () => {
                 to={page.path}
                 onClick={()=>setIsopen(!isOpen)}
               >
-                <span className={`text-gold lg:group-hover:bg-black  max-lg:hover:text-black ${isOpen? 'max-md:group-hover:bg-black max-md:hover:text-gold' :  ''}  max-lg:hover:bg-gold bg-gray max-lg:p-3 p-2 rounded-full max-lg:text-lg transition-all duration-300`}>
+                <span className={`text-gold lg:group-hover:bg-black  max-lg:hover:text-black ${isOpen? 'max-md:group-hover:bg-black max-md:p-2 max-md:hover:text-gold' :  ''}  max-lg:hover:bg-gold bg-gray max-lg:p-3 p-2 rounded-full max-lg:text-lg transition-all duration-300`}>
                   {page.icon}
                 </span>
                 <span className={`text-white group-hover:text-black group-hover:font-semibold ${isOpen ? 'max-md:block': 'max-md:hidden'} group-hover:text-sm max-lg:hidden`}>
@@ -87,7 +87,8 @@ const Sidebar = () => {
           </div>
 
           {/* Logo */}
-          <div className="flex md:hidden justify-center items-center gap-1 ">
+          <div className={`flex md:hidden justify-center items-center gap-1 
+            ${isSearch ? 'max-md:hidden': ''}`}>
           <img src={logo} alt="SlickTrade Logo" className="object-cover w-8 h-auto" />
           <h1 className="tracking-wide text-md  text-white font-bold">
             <span className="text-gold">Slick</span>Trade
@@ -95,9 +96,9 @@ const Sidebar = () => {
         </div>
 
         {/* Search Input */}
-        <div className={`search-bar md:hidden border py-1 text-sm bg-gray px-3 transition-all ease-in-out duration-300 rounded-full justify-between flex items-center ${isSearch? 'border-dark-gray': 'border-none bg-transparent' }`} >
-            <input type="text" className={`outline-none ${ isSearch? '':'hidden' } bg-transparent`} placeholder="Search here..." />
-            <button type="submit" onClick={()=>setIsSearch(!isSearch)} className={`${isSearch? '':'text-lg'} font-medium`}>
+        <div className={`search-bar md:hidden border py-1 text-sm bg-gray px-3 transition-all ease-in-out duration-300 rounded-full justify-between flex gap-2 items-center ${isSearch? 'border-dark-gray': 'border-none bg-transparent' }`} >
+            <input type="text" className={`outline-none ${ isSearch? '':'hidden' } w-[250px] bg-transparent`} placeholder="Search here..." />
+            <button type="submit" onClick={()=>setIsSearch(!isSearch)} className={`text-lg font-medium`}>
               <FaSearch />
             </button>
           </div>
