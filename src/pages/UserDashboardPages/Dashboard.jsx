@@ -181,7 +181,7 @@ const Dashboard = () => {
       </div>
       <div className="w-full border p-4 rounded-lg border-dark-gray overflow-auto  scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
         <table className="table-auto  w-full text-left text-sm">
-          <thead className="bg-gold bg-opacity-70">
+          <thead className="bg-glass ">
             <tr className=''>
               <th className="px-4 py-2">Transaction ID</th>
               <th className="px-4 py-2">Date</th>
