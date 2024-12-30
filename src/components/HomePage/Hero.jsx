@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Button'
+import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 
 const Hero = () => {
@@ -22,7 +23,7 @@ const Hero = () => {
       Say goodbye to risks and uncertainity. Our Platform connects you with trusted vendors, offering a secure and efficient trading exeprience like never before.
       </p>
 
-      <Button text={'GET STARTED TODAY'}/>
+      <Link to={'/user'}><Button text={'GET STARTED TODAY'}/></Link>
     </section>
   )
 }
