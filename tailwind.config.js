@@ -10,6 +10,9 @@ module.exports = {
       backgroundImage: {
         'hero': "url('https://res.cloudinary.com/dscpwrzng/image/upload/f_auto,q_auto,w_1920,c_fill/v1735142489/photo_2024-07-11_01-20-45_fnssws.jpg')"
       },
+      fontFamily: {
+        'montserrat':['Montserrat', 'sans-serif'],
+      },
       colors:{
         "gray": " #231E23",
         "glass":"rgba(225,225, 225, .1)",
