@@ -179,23 +179,23 @@ const Dashboard = () => {
           View All
         </button>
       </div>
-      <div className="w-full border p-4 rounded-lg border-dark-gray overflow-auto  scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
+      <div className="w-full border p-3 rounded-lg border-dark-gray overflow-auto  scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
         <table className="table-auto  w-full text-left text-sm">
           <thead className="bg-glass ">
-            <tr className=''>
-              <th className="px-4 py-2">Transaction ID</th>
-              <th className="px-4 py-2">Date</th>
-              <th className="px-4 py-2">Time</th>
-              <th className="px-4 py-2">Transaction Type</th>
-              <th className="px-4 py-2">Vendor</th>
-              <th className="px-4 py-2">Status</th>
+            <tr className='text-sm '>
+              <th className="px-4  font-medium py-2">Transaction ID</th>
+              <th className="px-4 font-medium py-2">Date</th>
+              <th className="px-4 font-medium py-2">Time</th>
+              <th className="px-4 font-medium py-2">Transaction Type</th>
+              <th className="px-4 font-medium py-2">Vendor</th>
+              <th className="px-4 font-medium py-2">Status</th>
             </tr>
           </thead>
           <tbody>
             {mockData.map((transaction, index) => (
               <tr
                 key={transaction.id}
-                className={ ` border-b border-dark-gray hover:bg-gray`}
+                className={ ` border-b text-[#c2c2c2] border-dark-gray hover:bg-gray`}
               >
                 <td className="px-4 py-2">{transaction.id}</td>
                 <td className="px-4 py-2">{transaction.date}</td>
@@ -203,7 +203,7 @@ const Dashboard = () => {
                 <td className="px-4 py-2">{transaction.type}</td>
                 <td className="px-4 py-2">{transaction.vendor}</td>
                 <td
-                  className={`p-4 ${
+                  className={`p-3 ${
                     transaction.status === "Completed"
                       ? "text-green-500"
                       : transaction.status === "Pending"
@@ -213,7 +213,18 @@ const Dashboard = () => {
                       : "text-purple-500"
                   }`}
                 >
+                    <p  className={`text-xs p-1 px-2 rounded-md text-white font-semibold flex items-center justify-center ${
+                    transaction.status === "Completed"
+                      ? "bg-green-500"
+                      : transaction.status === "Pending"
+                      ? "bg-yellow-500"
+                      : transaction.status === "Cancelled"
+                      ? "bg-red-500"
+                      : "bg-purple-500"
+                  }`}>
+
                   {transaction.status}
+                    </p>
                 </td>
               </tr>
             ))}
