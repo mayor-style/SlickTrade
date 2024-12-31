@@ -47,7 +47,7 @@ const Testimonial = () => {
                   className="h-12 w-12 object-cover rounded-full"
                 />
                 <div>
-                  <h6 className="font-semibold">@{testify.name}</h6>
+                  <h6 className="font-semibold tracking-wide">@{testify.name}</h6>
                   <p className=" text-xs tracking-wide transition duration-500 my-1 py-1 border bg-gray border-dark-gray text-white font-medium text-center rounded-full group-hover:font-semibold group-hover:border-black group-hover:bg-white group-hover:text-black">{testify.status}</p>
                 </div>
               </div>

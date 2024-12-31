@@ -18,7 +18,12 @@ const Notifications = () => {
           Mark All as Read
         </button>
       </div>
-      <ul className="space-y-4">
+      {/* Text to show if there is no recent notifications */}
+      <div className="text-lg hidden text-white ">
+        <h1>You have no recent notifications at the moment...
+          </h1>
+        </div>
+      <ul className="space-y-4 ">
         {notifications.map((notification) => (
           <li
             key={notification.id}

@@ -85,7 +85,7 @@ const TransactionHistory = () => {
         },
       ];
   return (
-    <div className="bg-gray h-full text-white w-full border border-dark-gray px-4 py-6 rounded-lg">
+    <div className="bg-gray h-full my-8 text-white w-full border border-dark-gray px-4 py-6 rounded-lg">
     <h1 className="sm:text-2xl text-lg font-semibold mb-2">
       Transaction <span>History</span>
     </h1>

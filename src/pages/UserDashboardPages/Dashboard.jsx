@@ -11,6 +11,8 @@ import StatsCard from '../../components/UserDashboard/DashboardPage/StatsCard';
 import TransactionHistory from '../../components/UserDashboard/DashboardPage/TransactionHistory';
 import Notifications from '../../components/UserDashboard/DashboardPage/Notifications';
 import PendingTasks from '../../components/UserDashboard/DashboardPage/PendingTasks';
+import VerifyAccountBanner from '../../components/UserDashboard/DashboardPage/VerifyAccountBanner';
+import ChartWidget from '../../components/UserDashboard/DashboardPage/ChartWidget';
 
 const Dashboard = () => {
 
@@ -101,36 +103,43 @@ const Dashboard = () => {
     <div className=' min-h-screen relative rounded-lg '>
         
         <div>
-            {/*HEADER */}
+            {/*WELCOME MESSAGE */}
          <div className=" mb-5 text-white items-center">           
         <h1 className=' lg:text-4xl sm:text-3xl text-2xl  text-white font-semibold '>
           Welcome back, <span className='font-bold'>Slick!</span>
         </h1>
         <p className=' max-xs:text-xs max-lg:text-sm'>Manage your transactions and stay Updated effortlessly.</p>
           </div>
-        
+      {/* verify Account Banner */}
+      <VerifyAccountBanner />
+
         {/* FIRST ROW */}
 
         {/* Pofile Card Section*/}
          <ProfileCard />
+  
         {/* Stats Cards Section*/}
         <StatsCard />
 
-        <hr className='text-dark-gray my-6'/>
+        <hr className='text-dark-gray my-8'/>
 
         {/* SECOND ROW */}
 
         {/*Recent Notification And Pending Task Section*/}
-        <div className="flex max-sm:flex-wrap gap-4 ">
+        <div className="flex max-md:flex-wrap gap-4 ">
           <Notifications />
           <PendingTasks />
         </div>
      
-        <hr className='text-dark-gray my-6'/>
+        <hr className='text-dark-gray my-8'/>
       
         {/* THIRD ROW */}
-             {/* Transaction Histories */}
+          {/*Chart Widget */}
+          <ChartWidget />
+          {/* Transaction Histories */}
            <TransactionHistory />
+
+           
   );
 
         
