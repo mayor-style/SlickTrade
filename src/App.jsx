@@ -13,6 +13,7 @@ import VerifyEmail from './pages/FormsPages/VerifyEmail';
 import EmailVerifyResult from './pages/FormsPages/EmailVerifyResult';
 import Sidebar from './components/UserDashboard/Sidebar';
 import Dashboard from './pages/UserDashboardPages/Dashboard';
+import TransactionPage from './pages/UserDashboardPages/TransactionPage';
 
 function App() {
   const location = useLocation();
@@ -47,6 +48,7 @@ function App() {
         <Route path="/user" element={<Sidebar />}>
           <Route index element={<Dashboard />} /> {/* Default */}
           <Route path="dashboard" element={<Dashboard />} /> {/* Child */}
+          <Route path="transactions" element={<TransactionPage />} /> {/* Child */}
         </Route>
       </Routes>
       {!shouldHideNavAndFooter && <Footer />}

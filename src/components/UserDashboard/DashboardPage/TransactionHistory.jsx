@@ -94,7 +94,7 @@ const TransactionHistory = () => {
         View All
       </button>
     </div>
-    <div className="w-full border p-3 rounded-lg border-dark-gray overflow-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
+    <div className="w-full border bg-glass p-3 rounded-lg border-dark-gray overflow-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
       <table className="table-auto w-full text-left text-sm">
         <thead className="bg-glass">
           <tr>
