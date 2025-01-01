@@ -23,7 +23,7 @@ const Hero = () => {
       Say goodbye to risks and uncertainity. Our Platform connects you with trusted vendors, offering a secure and efficient trading exeprience like never before.
       </p>
 
-      <Link to={'/user'}><Button text={'GET STARTED TODAY'}/></Link>
+      <Link to={'/signup-signin'}><Button text={'GET STARTED TODAY'}/></Link>
     </section>
   )
 }
