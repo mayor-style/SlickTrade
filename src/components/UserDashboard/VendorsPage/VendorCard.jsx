@@ -30,7 +30,7 @@ const VendorCard = ({ vendor }) => {
           <span className="font-medium text-white">Transaction Limit:</span> {vendor.transactionLimit}
         </p>
       </div>
-      <div className="flex space-x-2">
+      <div className="flex max-xs:text-xs max-sm:text-sm space-x-2">
         <button className="px-4 py-2 bg-gold rounded-lg hover:bg-opacity-80 text-black">
           View Profile
         </button>

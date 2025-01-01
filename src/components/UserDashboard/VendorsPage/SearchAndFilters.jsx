@@ -10,10 +10,10 @@ const SearchAndFilters = ({ searchTerm, onSearch, onFilter }) => {
         placeholder="Search vendors by name, service, or rating..."
         className="flex-1 px-4 py-2 border border-dark-gray rounded-lg bg-gray text-white"
       />
-      <div className="flex space-x-4 items-center sm:ml-4">
+      <div className="flex gap-2 items-center max-sm:justify-center max-xs:flex-wrap  sm:ml-4">
         <select
           onChange={onFilter}
-          className="px-4 py-2 border border-dark-gray rounded-lg bg-gray text-white"
+          className="px-4 py-2 border border-dark-gray rounded-lg bg-gray max-xs:w-full text-white"
         >
           <option value="">Filter by Service</option>
           <option value="PayPal">PayPal</option>
@@ -22,7 +22,7 @@ const SearchAndFilters = ({ searchTerm, onSearch, onFilter }) => {
         </select>
         <select
           onChange={onFilter}
-          className="px-4 py-2 border border-dark-gray rounded-lg bg-gray text-white"
+          className="px-4 py-2 border border-dark-gray rounded-lg bg-gray max-xs:w-full text-white"
         >
           <option value="">Filter by Rating</option>
           <option value="4">4 stars and above</option>

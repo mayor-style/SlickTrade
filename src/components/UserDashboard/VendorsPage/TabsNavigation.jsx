@@ -2,7 +2,7 @@ import React from 'react';
 
 const TabsNavigation = ({ activeTab, onTabChange, tabs }) => {
   return (
-    <div className="flex bg-glass backdrop-blur-md rounded-full border border-dark-gray space-x-4 items-center justify-between border-b px-4 py-2 mb-2 text-white">
+    <div className="flex max-xs:flex-wrap max-xs:justify-center bg-glass backdrop-blur-md rounded-full border border-dark-gray space-x-4 items-center justify-between border-b px-4 py-2 mb-2 text-white">
       {tabs.map((tab, index) => (
         <button
           key={index}
