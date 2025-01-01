@@ -15,6 +15,11 @@ import Sidebar from './components/UserDashboard/Sidebar';
 import Dashboard from './pages/UserDashboardPages/Dashboard';
 import TransactionPage from './pages/UserDashboardPages/TransactionPage';
 import VendorsPage from './pages/UserDashboardPages/VendorsPage';
+import WalletPage from './pages/UserDashboardPages/WalletPage';
+import Messages_Chats from './pages/UserDashboardPages/Messages_Chats';
+import ProfileSettingsPage from './pages/UserDashboardPages/ProfileSettingsPage';
+import Support_HelpPage from './pages/UserDashboardPages/Support_HelpPage';
+import NotificationsPage from './pages/UserDashboardPages/NotificationsPage';
 
 function App() {
   const location = useLocation();
@@ -51,6 +56,11 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} /> {/* Child */}
           <Route path="transactions" element={<TransactionPage />} /> {/* Child */}
           <Route path="vendors" element={<VendorsPage />} /> {/* Child */}
+          <Route path="wallet" element={<WalletPage />} /> {/* Child */}
+          <Route path="messages" element={<Messages_Chats />} /> {/* Child */}
+          <Route path="profile-settings" element={<ProfileSettingsPage />} /> {/* Child */}
+          <Route path="support" element={<Support_HelpPage />} /> {/* Child */}
+          <Route path="notifications" element={<NotificationsPage />} /> {/* Child */}
         </Route>
       </Routes>
       {!shouldHideNavAndFooter && <Footer />}
