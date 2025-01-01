@@ -1,176 +1,121 @@
-import React, { useState, useMemo } from 'react';
-import { useTable, usePagination, useFilters, useGlobalFilter } from 'react-table';
-//import mockData from './mockData'; // Import mock data here
+import React, { useState } from "react";
 
+const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=false }) => {
+  const [currentPage, setCurrentPage] = useState(1);
 
-const TransactionTable = () => {
-
-    
-// Sample Mock Data
-const mockData = Array.from({ length: 17 }, (_, i) => ({
-    transactionId: `T${1000 + i}`,
-    dateTime: `2024-12-${(i % 31) + 1} 12:00:00`,
-    vendor: i % 2 === 0 ? 'Vendor A' : 'Vendor B',
-    amount: `${(Math.random() * 500).toFixed(2)} USD`,
-    type: i % 3 === 0 ? 'PayPal Pickup' : 'Zelle Pickup',
-    status: i % 4 === 0 ? 'Completed' : i % 3 === 0 ? 'Pending' : 'Disputed',
-  }));
-
-  const columns = useMemo(
-    () => [
-      { Header: 'Transaction ID', accessor: 'transactionId' },
-      { Header: 'Date/Time', accessor: 'dateTime' },
-      { Header: 'Vendor Name', accessor: 'vendor' },
-      { Header: 'Amount', accessor: 'amount' },
-      { Header: 'Transaction Type', accessor: 'type' },
-      { Header: 'Status', accessor: 'status' },
-    ],
-    []
+  const paginatedData = transactions.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
   );
-
-  const [data, setData] = useState(mockData);
-  const [filters, setFilters] = useState({ type: '', vendor: '', status: '', search: '', dateRange: [] });
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    page,
-    nextPage,
-    previousPage,
-    canNextPage,
-    canPreviousPage,
-    pageOptions,
-    state: { pageIndex },
-  } = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageIndex: 0, pageSize: 10 },
-    },
-    useFilters,
-    useGlobalFilter,
-    usePagination
-  );
-
-  const handleFilterChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
-  };
-
-  const resetFilters = () => {
-    setFilters({ type: '', vendor: '', status: '', search: '', dateRange: [] });
-    setData(mockData);
-  };
 
   return (
-    <div className="container bg-gray h-full my-8 text-white w-full border border-dark-gray px-4 py-6 rounded-lg">
-      <div className="mb-3 p-3 bg-glass rounded">
-        <div className="flex md:items-center gap-3 max-md:flex-col">
-          <div className="col-md-2 ">
-            <select
-              name="type"
-              className="form-control bg-gray"
-              value={filters.type}
-              onChange={handleFilterChange}
-            >
-              <option value="">All Types</option>
-              <option value="PayPal Pickup">PayPal Pickup</option>
-              <option value="Zelle Pickup">Zelle Pickup</option>
-            </select>
-          </div>
-          <div className="col-md-2">
-            <select
-              name="vendor"
-              className="form-control bg-gray"
-              value={filters.vendor}
-              onChange={handleFilterChange}
-            >
-              <option value="">All Vendors</option>
-              <option value="Vendor A">Vendor A</option>
-              <option value="Vendor B">Vendor B</option>
-            </select>
-          </div>
-          <div className="col-md-2">
-            <select
-              name="status"
-              className="form-control bg-gray"
-              value={filters.status}
-              onChange={handleFilterChange}
-            >
-              <option value="">All Statuses</option>
-              <option value="Completed">Completed</option>
-              <option value="Pending">Pending</option>
-              <option value="Disputed">Disputed</option>
-            </select>
-          </div>
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="search"
-              className="form-control bg-gray"
-              placeholder="Search Transactions"
-              value={filters.search}
-              onChange={handleFilterChange}
-            />
-          </div>
-          <div className="col-md-2 bg-red-600">
-            <button className="btn btn-danger w-100" onClick={resetFilters}>
-              Reset Filters
-            </button>
-          </div>
-        </div>
+    <div className="bg-gray my-8 text-white w-full border border-dark-gray px-4 py-6 rounded-lg">
+      {tableTitle} {/* Use the custom title */}
+      <div className="flex flex-wrap gap-4 mb-4">
+        <input
+          type="text"
+          placeholder="Search by Transaction ID"
+          className="bg-glass border max-sm:text-sm border-dark-gray px-4 py-2 rounded-lg w-full max-w-sm"
+        />
+        <select className="bg-glass text-white  border border-dark-gray max-sm:text-sm px-4 py-2 rounded-lg">
+          <option className="bg-dark-gray">Filter by Status</option>
+          <option className="bg-dark-gray">Completed</option>
+          <option className="bg-dark-gray">Pending</option>
+          <option className="bg-dark-gray">Cancelled</option>
+          <option className="bg-dark-gray">Disputed</option>
+        </select>
+        <button className="bg-gold max-sm:text-sm text-black px-4 py-2 rounded-lg hover:bg-opacity-80">
+          Reset Filters
+        </button>
+        {viewAll &&
+          <button className="bg-gold max-sm:text-sm text-black px-4 py-2 rounded-lg hover:bg-opacity-80">
+          View All
+        </button>
+        }
       </div>
-      <div className="w-full border p-3 bg-glass rounded-lg border-dark-gray overflow-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
-      <h2 className="text-white font-semibold text-lg mb-4">Transaction <span>History</span></h2>
-      <table className="table w-full table-bordered text-left text-sm" {...getTableProps()}>
-        <thead className='bg-glass'> 
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()} className='px-4 py-2 font-medium'>{column.render('Header')}</th>
-              ))}
+      <div className="border bg-glass p-3 rounded-lg border-dark-gray overflow-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
+        <table className="table-auto w-full text-left text-sm">
+          <thead className="bg-glass">
+            <tr>
+              <th className="px-4 py-2">Transaction ID</th>
+              <th className="px-4 py-2">Date</th>
+              <th className="px-4 py-2">Amount</th>
+              <th className="px-4 py-2">Transaction Type</th>
+              <th className="px-4 py-2">Vendor</th>
+              <th className="px-4 py-2">Status</th>
             </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()} className='font-montserrat text-xs'>
-          {page.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()} onClick={() => alert(`Clicked: ${row.values.type}`)}
-              className="border-b text-[#c2c2c2] border-dark-gray hover:bg-gray"
+          </thead>
+          <tbody className="font-montserrat text-xs">
+            {paginatedData.map((transaction) => (
+              <tr
+                key={transaction.id}
+                className="border-b text-[#c2c2c2] border-dark-gray hover:bg-gray cursor-pointer"
+                onClick={() => alert(`Navigate to transaction: ${transaction.id}`)}
               >
-                {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()}
-                  className="px-4 py-2"
+                <td className="px-4 py-2">{transaction.id}</td>
+                <td className="px-4 py-2">{transaction.date}</td>
+                <td className="px-4 py-2">{transaction.amount}</td>
+                <td className="px-4 py-2">{transaction.type}</td>
+                <td className="px-4 py-2">{transaction.vendor}</td>
+                <td
+                  className={`p-3 ${
+                    transaction.status === "Completed"
+                      ? "text-green-500"
+                      : transaction.status === "Pending"
+                      ? "text-yellow-500"
+                      : transaction.status === "Cancelled"
+                      ? "text-red-500"
+                      : "text-purple-500"
+                  }`}
+                >
+                  <p
+                    className={`text-xs p-1 px-2 rounded-md text-white font-semibold flex items-center justify-center ${
+                      transaction.status === "Completed"
+                        ? "bg-green-500"
+                        : transaction.status === "Pending"
+                        ? "bg-yellow-500"
+                        : transaction.status === "Cancelled"
+                        ? "bg-red-500"
+                        : "bg-purple-500"
+                    }`}
                   >
-                    {cell.render('Cell')}</td>
-                ))}
+                    {transaction.status}
+                  </p>
+                </td>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <div className="pagination flex text-black mt-2 justify-between">
-        <button className="btn btn-primary p-2 bg-gold" onClick={previousPage} disabled={!canPreviousPage}>
+      {!viewAll &&
+      
+      <div className="flex justify-between items-center mt-4">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          className="bg-gray text-white px-4 py-2 rounded-md border border-dark-gray max-sm:text-sm hover:bg-opacity-80"
+        >
           Previous
         </button>
         <span>
-          Page {pageIndex + 1} of {pageOptions.length}
+          Page {currentPage} of {Math.ceil(transactions.length / rowsPerPage)}
         </span>
-        <button className="btn btn-primary p-2 bg-gold" onClick={nextPage} disabled={!canNextPage}>
+        <button
+          onClick={() =>
+            setCurrentPage((prev) =>
+              Math.min(prev + 1, Math.ceil(transactions.length / rowsPerPage))
+            )
+          }
+          className="bg-gray text-white px-4 py-2 rounded-md border border-dark-gray max-sm:text-sm hover:bg-opacity-80"
+        >
           Next
         </button>
       </div>
-      <div className="flex mt-6 text-black py-2 hover:bg-opacity-80 transition-all duration-200 ease-in-out cursor-pointer active:bg-opacity-100 bg-gold items-center justify-center">
-        <button>
-        Start New Transaction
-        </button>
+      }
+      <div className="flex justify-center items-center mt-10 hover:bg-opacity-80 transition-all max-sm:text-sm active:bg-opacity-100 duration-200 ease-in-out rounded-lg bg-gold text-black py-2">
+      <button>Start New Transaction</button>
       </div>
     </div>
   );
 };
 
-export default TransactionTable;
-
+export default TransactionsTable;

@@ -8,95 +8,54 @@ import { FaMedal } from 'react-icons/fa';
 import Button from '../../components/Button';
 import ProfileCard from '../../components/UserDashboard/DashboardPage/ProfileCard';
 import StatsCard from '../../components/UserDashboard/DashboardPage/StatsCard';
-import TransactionHistory from '../../components/UserDashboard/DashboardPage/TransactionHistory';
 import Notifications from '../../components/UserDashboard/DashboardPage/Notifications';
 import PendingTasks from '../../components/UserDashboard/DashboardPage/PendingTasks';
 import VerifyAccountBanner from '../../components/UserDashboard/DashboardPage/VerifyAccountBanner';
 import ChartWidget from '../../components/UserDashboard/DashboardPage/ChartWidget';
+import TransactionsTable from '../../components/UserDashboard/TransactionsPage/TransactionTable';
+import HighlightLastWord from '../../components/HighlightLastWord';
 
 const Dashboard = () => {
 
-    const mockData = [
-        {
-          id: "TRX123456",
-          date: "2024-12-27",
-          time: "10:45 AM",
-          type: "PayPal Pickup",
-          vendor: "Vendor123",
-          status: "Completed",
-        },
-        {
-          id: "TRX123457",
-          date: "2024-12-26",
-          time: "08:30 PM",
-          type: "CashApp",
-          vendor: "Vendor456",
-          status: "Pending",
-        },
-        {
-          id: "TRX123458",
-          date: "2024-12-25",
-          time: "02:15 PM",
-          type: "Zelle",
-          vendor: "Vendor789",
-          status: "Cancelled",
-        },
-        {
-          id: "TRX123459",
-          date: "2024-12-24",
-          time: "11:00 AM",
-          type: "GiftCard Redeem",
-          vendor: "Vendor101",
-          status: "Disputed",
-        },
-        {
-          id: "TRX123460",
-          date: "2024-12-23",
-          time: "05:45 PM",
-          type: "Purchase of Log",
-          vendor: "Vendor202",
-          status: "Completed",
-        },
-        {
-          id: "TRX123461",
-          date: "2024-12-22",
-          time: "01:30 PM",
-          type: "PayPal Pickup",
-          vendor: "Vendor303",
-          status: "Completed",
-        },
-        {
-          id: "TRX123462",
-          date: "2024-12-21",
-          time: "09:00 AM",
-          type: "CashApp",
-          vendor: "Vendor404",
-          status: "Pending",
-        },
-        {
-          id: "TRX123463",
-          date: "2024-12-20",
-          time: "07:15 PM",
-          type: "GiftCard Redeem",
-          vendor: "Vendor505",
-          status: "Cancelled",
-        },
-        {
-          id: "TRX123464",
-          date: "2024-12-19",
-          time: "06:20 AM",
-          type: "Zelle",
-          vendor: "Vendor606",
-          status: "Disputed",
-        },
-        {
-          id: "TRX123465",
-          date: "2024-12-18",
-          time: "03:45 PM",
-          type: "Purchase of Log",
-          vendor: "Vendor707",
-          status: "Completed",
-        },
+  const mockData = [
+    { id: "TRX001", date: "2024-12-27", amount: "$500", type: "PayPal Pickup", vendor: "Vendor1", status: "Completed" },
+    { id: "TRX002", date: "2024-12-26", amount: "$300", type: "Zelle Pickup", vendor: "Vendor2", status: "Pending" },
+    { id: "TRX001", date: "2024-12-27", amount: "$500", type: "PayPal Pickup", vendor: "Vendor1", status: "Completed" },
+    { id: "TRX002", date: "2024-12-26", amount: "$300", type: "Zelle Pickup", vendor: "Vendor2", status: "Pending" },
+    { id: "TRX001", date: "2024-12-27", amount: "$500", type: "PayPal Pickup", vendor: "Vendor1", status: "Completed" },
+    { id: "TRX002", date: "2024-12-26", amount: "$300", type: "Zelle Pickup", vendor: "Vendor2", status: "Pending" },
+    {
+      id: "TRX123456",
+      date: "2024-12-27",
+      amount: "$500",
+      type: "PayPal ",
+      vendor: "Vendor123",
+      status: "Completed",
+    },
+    {
+      id: "TRX123457",
+      date: "2024-12-26",
+      amount: "$230",
+      type: "CashApp ",
+      vendor: "Vendor456",
+      status: "Pending",
+    },
+    {
+      id: "TRX123458",
+      date: "2024-12-25",
+      amount: "$90",
+      type: "Zelle ",
+      vendor: "Vendor789",
+      status: "Cancelled",
+    },
+    {
+      id: "TRX123459",
+      date: "2024-12-24",
+      amount: "$980",
+      type: "GiftCard Redeem",
+      vendor: "Vendor101",
+      status: "Disputed",
+    },
       ];
 
   return (
@@ -137,7 +96,7 @@ const Dashboard = () => {
           {/*Chart Widget */}
           <ChartWidget />
           {/* Transaction Histories */}
-           <TransactionHistory />
+           <TransactionsTable rowsPerPage={10} viewAll={true} transactions={mockData} tableTitle={<HighlightLastWord text={'Recent Transactions'} />}/>
 
            
   );

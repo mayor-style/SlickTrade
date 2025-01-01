@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
-import { Line, Bar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-} from 'chart.js';
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend);
+import HighlightLastWord from '../../HighlightLastWord'
+import LineChart from '../../LineChart';
+import BarChart from '../../BarChart';
 
 const ChartWidget = () => {
-  // Independent filter states for left and right sections
   const [leftFilter, setLeftFilter] = useState('weekly');
   const [rightFilter, setRightFilter] = useState('weekly');
 
-  // Chart data for left section (Transactions and Amounts)
   const leftChartData = {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [
@@ -40,7 +27,6 @@ const ChartWidget = () => {
     ],
   };
 
-  // Chart data for right section (User Ratings Over Time)
   const rightChartData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     datasets: [
@@ -55,10 +41,9 @@ const ChartWidget = () => {
     ],
   };
 
-  // Chart options
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false, // Allows chart to fill container width
+    maintainAspectRatio: false,
     plugins: {
       legend: { display: true, position: 'top' },
     },
@@ -69,43 +54,35 @@ const ChartWidget = () => {
   };
 
   return (
-    <div className="flex max-md:flex-col gap-6 w-full">
-      {/* Left Section */}
-      <div className=" bg-glass backdrop-blur-lg border border-dark-gray md:w-[50%] rounded-lg p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-white">Transactions <span> Overview</span></h2>
-          <select
-            value={leftFilter}
-            onChange={(e) => setLeftFilter(e.target.value)}
-            className="bg-dark-gray text-white text-sm rounded-md px-2 py-1 border border-gray-500"
-          >
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-        </div>
-        <div className="h-64">
-          <Bar data={leftChartData} options={chartOptions} />
-        </div>
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+     <div className="">
+     <BarChart
+        title={<HighlightLastWord text={"Transactions Overview"} />}
+        data={leftChartData}
+        options={chartOptions}
+        filterOptions={[
+          { value: 'weekly', label: 'Weekly' },
+          { value: 'monthly', label: 'Monthly' },
+        ]}
+        filterValue={leftFilter}
+        onFilterChange={(e) => setLeftFilter(e.target.value)}
+      />
+     </div>
 
-      {/* Right Section */}
-      <div className=" bg-glass backdrop-blur-lg border border-dark-gray md:w-[47%] rounded-lg p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-white">Transaction <span>Ratings</span></h2>
-          <select
-            value={rightFilter}
-            onChange={(e) => setRightFilter(e.target.value)}
-            className="bg-dark-gray text-white text-sm rounded-md px-2 py-1 border border-gray-500"
-          >
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-            <option value="yearly">Yearly</option>
-          </select>
-        </div>
-        <div className="h-64">
-          <Line data={rightChartData} options={chartOptions} />
-        </div>
-      </div>
+     <div className="">
+     <LineChart
+        title={<HighlightLastWord text={"Transaction Ratings"} />}
+        data={rightChartData}
+        options={chartOptions}
+        filterOptions={[
+          { value: 'weekly', label: 'Weekly' },
+          { value: 'monthly', label: 'Monthly' },
+          { value: 'yearly', label: 'Yearly' },
+        ]}
+        filterValue={rightFilter}
+        onFilterChange={(e) => setRightFilter(e.target.value)}
+      />
+     </div>
     </div>
   );
 };

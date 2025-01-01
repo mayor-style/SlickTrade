@@ -1,32 +1,14 @@
 import React, { useState } from 'react';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
+import LineChartComponent from '../../LineChart'; // Reusable Line Chart Component
+import BarChartComponent from '../../BarChart'; // Reusable Bar Chart Component
+import PieChart from '../../PieChart'; // Reusable Pie Chart Component
+import HighlightLastWord from "../../HighlightLastWord";
 
 const TransactionCharts = () => {
   const [transactionFilter, setTransactionFilter] = useState('monthly');
   const [disputeFilter, setDisputeFilter] = useState('monthly');
 
-  // Sample Data
-  const transactionTrends = [
-    { period: 'Jan', count: 50 },
-    { period: 'Feb', count: 75 },
-    { period: 'Mar', count: 100 },
-    { period: 'Apr', count: 125 },
-  ];
-
+  // category pie chart details
   const categoryDistribution = [
     { name: 'PayPal', value: 40 },
     { name: 'Zelle', value: 30 },
@@ -34,123 +16,126 @@ const TransactionCharts = () => {
     { name: 'Others', value: 10 },
   ];
 
-  const vendorPerformance = [
-    { vendor: 'Vendor A', value: 50 },
-    { vendor: 'Vendor B', value: 80 },
-    { vendor: 'Vendor C', value: 30 },
-    { vendor: 'Vendor D', value: 40 },
-  ];
+  // vendor bar chart details
+  const vendorPerformance = {
+    labels: ['Vendor A', 'Vendor B', 'Vendor C', 'Vendor D', 'Vendor E'],
+    datasets: [
+      {
+        label:  'Vendors performance',
+        data:  [50, 60, 70, 80, 90],
+        backgroundColor: '#ffd700',
+        borderColor: '#ffd700',
+        borderWidth: 1,
+      }],
+    };
 
-  const disputeTrends = [
-    { period: 'Jan', disputes: 5 },
-    { period: 'Feb', disputes: 8 },
-    { period: 'Mar', disputes: 3 },
-    { period: 'Apr', disputes: 6 },
-  ];
+  // Dispute line chart details
+  const disputeTrends = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    datasets: [
+      {
+        label: 'Dispute Count(monthly)',
+        data: [5, 8, 3, 6, 15, 1],
+        backgroundColor: '#ff595e',
+        borderColor: '#ff595e',
+        borderWidth: 2,
+        tension: 0.3,
+      },
+    ],
+  };
+
+  // Transaction line chart details
+  const transactionTrends = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    datasets: [
+      {
+        label: 'Transactions Count(monthly)',
+        data: [15, 20, 35, 49, 100, 140, 135],
+        backgroundColor: '#ff595e',
+        borderColor: '#ff595e',
+        borderWidth: 2,
+        tension: 0.3,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: true, position: 'top' },
+    },
+    scales: {
+      x: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
+      y: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
+    },
+  };
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Row 1 */}
-      <div className="flex max-md:flex-col gap-6 w-full">
-        {/* Transaction Trends */}
-        <div className="bg-glass backdrop-blur-lg border w-full border-dark-gray md:w-[50%] rounded-lg p-4">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white font-semibold text-lg">Transaction <span>Trends</span></h2>
-            <select
-              value={transactionFilter}
-              onChange={(e) => setTransactionFilter(e.target.value)}
-              className="bg-dark-gray text-white text-sm rounded-md px-2 py-1 border border-gray-500"
-            >
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </div>
-          <div className="w-full h-[250px]">
-            <ResponsiveContainer>
-              <LineChart data={transactionTrends}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="period" />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="count" stroke="#00C49F" strokeWidth={2} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+      {/* ROW 1 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+        {/* Transaction Trends Line Chart */}
+        <div className="">
+        <LineChartComponent
+            title={<HighlightLastWord text={'Transaction Trends'}/> }
+            data={transactionTrends}
+            options={chartOptions}
+            filterOptions={[
+              { value: 'weekly', label: 'Weekly' },
+              { value: 'monthly', label: 'Monthly' },
+              { value: 'yearly', label: 'Yearly' },
+            ]}      
+          />
         </div>
 
-        {/* Category Distribution */}
-        <div className="bg-glass backdrop-blur-lg border border-dark-gray md:w-[47%] w-full rounded-lg p-4">
-          <h2 className="text-white font-semibold text-lg mb-4">Category <span>Distribution</span></h2>
+        {/* Category Distribution Pie Chart */}        
+        <div className="bg-glass backdrop-blur-lg border border-dark-gray w-full rounded-lg p-4">
+          <h2 className="text-white font-semibold text-lg mb-4">
+            Category <span>Distribution</span>
+          </h2>
           <div className="w-full h-[250px]">
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie
-                  data={categoryDistribution}
-                  dataKey="value"
-                  nameKey="name"
-                  cx="50%"
-                  cy="50%"
-                  outerRadius="80%"
-                  fill="#8884d8"
-                  label
-                >
-                  {categoryDistribution.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Legend />
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
+            <PieChart
+              data={categoryDistribution}
+              dataKey="value"
+              nameKey="name"
+              colors={COLORS}
+            />
           </div>
         </div>
+        
       </div>
+      
 
-      {/* Row 2 */}
-      <div className="flex max-md:flex-col gap-6 w-full">
-        {/* Vendor Performance */}
-        <div className="bg-glass backdrop-blur-lg w-full border border-dark-gray md:w-[50%] rounded-lg p-4">
-          <h2 className="text-white font-semibold text-lg mb-4">Vendor <span>Performance</span></h2>
-          <div className="w-full h-[250px]">
-            <ResponsiveContainer>
-              <BarChart data={vendorPerformance}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="vendor" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="value" fill="#FFBB28" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
+      {/* ROW 2 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+        {/* Vendor Performance Bar Chart */}
+        <div className="">
+        <BarChartComponent
+        title={<HighlightLastWord text={'Vendor Trends'} />}
+        data={vendorPerformance}
+        options={chartOptions}  
+      />
+      </div>
+        
 
-        {/* Dispute Trends */}
-        <div className="bg-glass backdrop-blur-lg w-full border border-dark-gray md:w-[47%] rounded-lg p-4">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white font-semibold text-lg">Dispute <span>Trends</span></h2>
-            <select
-              value={disputeFilter}
-              onChange={(e) => setDisputeFilter(e.target.value)}
-              className="bg-dark-gray text-white text-sm rounded-md px-2 py-1 border border-gray-500"
-            >
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
+        {/* Dispute Trends Line Chart */}
+        <div className="">
+        <LineChartComponent
+            title={<HighlightLastWord text={'Dispute Trends'}/> }
+            data={disputeTrends}
+            options={chartOptions}
+            filterOptions={[
+              { value: 'weekly', label: 'Weekly' },
+              { value: 'monthly', label: 'Monthly' },
+              { value: 'yearly', label: 'Yearly' },
+            ]}
+            filterValue={disputeFilter}      
+          />
           </div>
-          <div className="w-full h-[250px]">
-            <ResponsiveContainer>
-              <LineChart data={disputeTrends}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="period" />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="disputes" stroke="#FF8042" strokeWidth={2} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
+         
       </div>
     </div>
   );
