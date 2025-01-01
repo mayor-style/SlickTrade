@@ -122,6 +122,7 @@ const mockData = Array.from({ length: 17 }, (_, i) => ({
         </div>
       </div>
       <div className="w-full border p-3 bg-glass rounded-lg border-dark-gray overflow-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
+      <h2 className="text-white font-semibold text-lg mb-4">Transaction <span>History</span></h2>
       <table className="table w-full table-bordered text-left text-sm" {...getTableProps()}>
         <thead className='bg-glass'> 
           {headerGroups.map((headerGroup) => (
@@ -136,7 +137,7 @@ const mockData = Array.from({ length: 17 }, (_, i) => ({
           {page.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()} onClick={() => alert(`Clicked: ${row.values.transactionId}`)}
+              <tr {...row.getRowProps()} onClick={() => alert(`Clicked: ${row.values.type}`)}
               className="border-b text-[#c2c2c2] border-dark-gray hover:bg-gray"
               >
                 {row.cells.map((cell) => (
@@ -151,15 +152,20 @@ const mockData = Array.from({ length: 17 }, (_, i) => ({
         </tbody>
       </table>
       </div>
-      <div className="pagination flex justify-between">
-        <button className="btn btn-primary bg-gold" onClick={previousPage} disabled={!canPreviousPage}>
+      <div className="pagination flex text-black mt-2 justify-between">
+        <button className="btn btn-primary p-2 bg-gold" onClick={previousPage} disabled={!canPreviousPage}>
           Previous
         </button>
         <span>
           Page {pageIndex + 1} of {pageOptions.length}
         </span>
-        <button className="btn btn-primary bg-gold" onClick={nextPage} disabled={!canNextPage}>
+        <button className="btn btn-primary p-2 bg-gold" onClick={nextPage} disabled={!canNextPage}>
           Next
+        </button>
+      </div>
+      <div className="flex mt-6 text-black py-2 hover:bg-opacity-80 transition-all duration-200 ease-in-out cursor-pointer active:bg-opacity-100 bg-gold items-center justify-center">
+        <button>
+        Start New Transaction
         </button>
       </div>
     </div>

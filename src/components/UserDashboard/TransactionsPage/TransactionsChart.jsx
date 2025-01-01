@@ -57,7 +57,7 @@ const TransactionCharts = () => {
         {/* Transaction Trends */}
         <div className="bg-glass backdrop-blur-lg border w-full border-dark-gray md:w-[50%] rounded-lg p-4">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white font-semibold text-lg">Transaction Trends</h2>
+            <h2 className="text-white font-semibold text-lg">Transaction <span>Trends</span></h2>
             <select
               value={transactionFilter}
               onChange={(e) => setTransactionFilter(e.target.value)}
@@ -82,7 +82,7 @@ const TransactionCharts = () => {
 
         {/* Category Distribution */}
         <div className="bg-glass backdrop-blur-lg border border-dark-gray md:w-[47%] w-full rounded-lg p-4">
-          <h2 className="text-white font-semibold text-lg mb-4">Category Distribution</h2>
+          <h2 className="text-white font-semibold text-lg mb-4">Category <span>Distribution</span></h2>
           <div className="w-full h-[250px]">
             <ResponsiveContainer>
               <PieChart>
@@ -112,7 +112,7 @@ const TransactionCharts = () => {
       <div className="flex max-md:flex-col gap-6 w-full">
         {/* Vendor Performance */}
         <div className="bg-glass backdrop-blur-lg w-full border border-dark-gray md:w-[50%] rounded-lg p-4">
-          <h2 className="text-white font-semibold text-lg mb-4">Vendor Performance</h2>
+          <h2 className="text-white font-semibold text-lg mb-4">Vendor <span>Performance</span></h2>
           <div className="w-full h-[250px]">
             <ResponsiveContainer>
               <BarChart data={vendorPerformance}>
@@ -129,7 +129,7 @@ const TransactionCharts = () => {
         {/* Dispute Trends */}
         <div className="bg-glass backdrop-blur-lg w-full border border-dark-gray md:w-[47%] rounded-lg p-4">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white font-semibold text-lg">Dispute Trends</h2>
+            <h2 className="text-white font-semibold text-lg">Dispute <span>Trends</span></h2>
             <select
               value={disputeFilter}
               onChange={(e) => setDisputeFilter(e.target.value)}
