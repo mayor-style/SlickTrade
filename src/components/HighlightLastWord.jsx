@@ -6,7 +6,7 @@ const HighlightLastWord = ({ text }) => {
   const rest = words.join(' '); // Join the remaining words back together
 
   return (
-    <h1 className="text-white font-semibold text-lg md:text-xl mb-4">
+    <h1 className="text-white font-semibold text-lg md:text-xl">
       {rest} <span className="text-gold">{lastWord}</span>
     </h1>
   );

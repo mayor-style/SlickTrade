@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=false }) => {
+const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=false, onRowClick }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const paginatedData = transactions.slice(
@@ -9,8 +9,8 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
   );
 
   return (
-    <div className="bg-gray my-8 text-white w-full border border-dark-gray px-4 py-6 rounded-lg">
-      {tableTitle} {/* Use the custom title */}
+    <div className="bg-gray my-8 text-white w-full border border-dark-gray px-4 py-6 rounded-lg ">
+      <div className="mb-4">{tableTitle}</div> {/* Use the custom title */}
       <div className="flex flex-wrap gap-4 mb-4">
         <input
           type="text"
@@ -50,13 +50,13 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
               <tr
                 key={transaction.id}
                 className="border-b text-[#c2c2c2] border-dark-gray hover:bg-gray cursor-pointer"
-                onClick={() => alert(`Navigate to transaction: ${transaction.id}`)}
+                onClick={() => onRowClick(transaction)} // Trigger the handler passed as a prop
               >
                 <td className="px-4 py-2">{transaction.id}</td>
                 <td className="px-4 py-2">{transaction.date}</td>
-                <td className="px-4 py-2">{transaction.amount}</td>
-                <td className="px-4 py-2">{transaction.type}</td>
-                <td className="px-4 py-2">{transaction.vendor}</td>
+                <td className="px-4 py-2">${transaction.amount}</td>
+                <td className="px-4 py-2">{transaction.service}</td>
+                <td className="px-4 py-2">{transaction.vendor.name}</td>
                 <td
                   className={`p-3 ${
                     transaction.status === "Completed"
@@ -92,7 +92,7 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
       <div className="flex justify-between items-center mt-4">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          className="bg-gray text-white px-4 py-2 rounded-md border border-dark-gray max-sm:text-sm hover:bg-opacity-80"
+          className="bg-gray transition-all duartion-200 ease-in-out hover:bg-gold hover:text-black text-white px-4 py-2 rounded-md border border-dark-gray max-sm:text-sm hover:border-none"
         >
           Previous
         </button>
@@ -105,7 +105,7 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
               Math.min(prev + 1, Math.ceil(transactions.length / rowsPerPage))
             )
           }
-          className="bg-gray text-white px-4 py-2 rounded-md border border-dark-gray max-sm:text-sm hover:bg-opacity-80"
+          className="bg-gray transition-all duartion-200 ease-in-out hover:bg-gold hover:text-black text-white px-4 py-2 rounded-md border border-dark-gray max-sm:text-sm hover:border-none"
         >
           Next
         </button>
@@ -114,6 +114,8 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
       <div className="flex justify-center items-center mt-10 hover:bg-opacity-80 transition-all max-sm:text-sm active:bg-opacity-100 duration-200 ease-in-out rounded-lg bg-gold text-black py-2">
       <button>Start New Transaction</button>
       </div>
+
+      
     </div>
   );
 };

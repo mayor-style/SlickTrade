@@ -54,8 +54,8 @@ const ChartWidget = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-     <div className="">
+    <div className="grid h-full grid-cols-1 md:grid-cols-2 gap-6 w-full">
+     <div className="h-full">
      <BarChart
         title={<HighlightLastWord text={"Transactions Overview"} />}
         data={leftChartData}
@@ -69,7 +69,7 @@ const ChartWidget = () => {
       />
      </div>
 
-     <div className="">
+     <div className="h-full">
      <LineChart
         title={<HighlightLastWord text={"Transaction Ratings"} />}
         data={rightChartData}
