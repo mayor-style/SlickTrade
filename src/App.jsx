@@ -14,6 +14,7 @@ import EmailVerifyResult from './pages/FormsPages/EmailVerifyResult';
 import Sidebar from './components/UserDashboard/Sidebar';
 import Dashboard from './pages/UserDashboardPages/Dashboard';
 import TransactionPage from './pages/UserDashboardPages/TransactionPage';
+import VendorsPage from './pages/UserDashboardPages/VendorsPage';
 
 function App() {
   const location = useLocation();
@@ -49,6 +50,7 @@ function App() {
           <Route index element={<Dashboard />} /> {/* Default */}
           <Route path="dashboard" element={<Dashboard />} /> {/* Child */}
           <Route path="transactions" element={<TransactionPage />} /> {/* Child */}
+          <Route path="vendors" element={<VendorsPage />} /> {/* Child */}
         </Route>
       </Routes>
       {!shouldHideNavAndFooter && <Footer />}

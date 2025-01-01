@@ -215,12 +215,12 @@ const Dashboard = () => {
            />
 
             {/* TRANSACTION DETAILS DRAWER */}
-    {isDrawerOpen && (
-      <TransactionDrawer
-        isOpen={isDrawerOpen}
-        onClose={closeDrawer}
-        transaction={selectedTransaction} // Pass the selected transaction
-      />
+        {isDrawerOpen && (
+          <TransactionDrawer
+            isOpen={isDrawerOpen}
+            onClose={closeDrawer}
+            transaction={selectedTransaction} // Pass the selected transaction
+          />
     )}
 
   );
