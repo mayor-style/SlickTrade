@@ -47,8 +47,8 @@ const Features = () => {
 
       <div className="grid mt-[80px] sm:grid-cols-2 lg:grid-cols-3 gap-[50px] xs:px-6">
         {featureInfo.map((feature) => (
-          <div key={feature.id} className="hidden-scale bg-transparent border-[gold] border-dashed  border shadow-lg rounded-lg px-5 py-10 text-center">
-            <div className="text-[gold]  bg-black px-1 py-2 text-4xl w-fit m-auto mt-[-60px]">
+          <div key={feature.id} className="hidden-scale bg-transparent border-gold border-dashed  border shadow-lg rounded-lg px-5 py-10 text-center">
+            <div className="text-gold  bg-black px-1 py-2 text-4xl w-fit m-auto mt-[-60px]">
               <FontAwesomeIcon icon={feature.icon} /> {/* Use the imported component here */}
             </div>
             <h2 className="text-lg text-white font-semibold my-2 ">{feature.title}</h2>

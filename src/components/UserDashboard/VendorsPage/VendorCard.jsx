@@ -4,7 +4,7 @@ import picture from '../../../assets/imgs/user.jpg'
 
 const VendorCard = ({ vendor }) => {
   return (
-    <div className="p-4 border border-dark-gray backdrop-blur-md bg-glass h-full w-full rounded-lg text-white space-y-3">
+    <div className="p-4 py-6 border border-dark-gray backdrop-blur-md bg-glass h-full w-full rounded-lg text-white space-y-4">
       <div className="flex items-center space-x-3">
         <img
           src={picture}
@@ -13,10 +13,10 @@ const VendorCard = ({ vendor }) => {
         />
         <div>
           <h3 className="text-lg font-semibold">{vendor.name}</h3>
-          <p className="text-sm text-gold">{vendor.services.join(', ')}</p>
+        
         </div>
       </div>
-      <div className="text-sm">
+      <div className="text-sm space-y-2">
         <p>
           <span className="font-medium text-white">Verified:</span> {vendor.verified ? 'Yes' : 'No'}
         </p>
@@ -29,8 +29,12 @@ const VendorCard = ({ vendor }) => {
         <p>
           <span className="font-medium text-white">Transaction Limit:</span> {vendor.transactionLimit}
         </p>
+        <p className="">
+        <span className="font-medium text-white">Services: </span> 
+          {vendor.services.join(', ')}</p>
       </div>
-      <div className="flex items-center max-xs:text-xs max-sm:text-sm space-x-2">
+
+      <div className="flex items-center text-sm space-x-2">
         <button className="px-4 py-2 bg-gold rounded-lg hover:bg-opacity-80 text-black">
           View Profile
         </button>

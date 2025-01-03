@@ -17,7 +17,7 @@ module.exports = {
         "gray": " #231E23",
         "glass":"rgba(225,225, 225, .1)",
         "light-black": "rgba(0,0,0,0.5)",
-        "gold": '#FFD700', // Gold hex code
+        "gold": '#d4af37', // Gold hex code
         "dark-gray": "rgb(94,94,94)",
         darkGold: '#B8860B', // Darker gold shade,
 

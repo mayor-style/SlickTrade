@@ -37,7 +37,7 @@ const StatsCard = ({ statsDetails }) => {
   const stats = statsDetails || defaultStats;
 
   return (
-    <div className="bg-gray h-full border border-dark-gray p-4 py-6 rounded-lg">
+    <div className="bg-gray h-full border bordr-dark-gray p-4 py-6 rounded-lg">
       <h2 className="sm:text-2xl text-white text-lg font-semibold mb-2">
         Stats <span>Cards</span>
       </h2>

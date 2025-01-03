@@ -40,7 +40,7 @@ const EmailVerifyResult = () => {
 
       {/* Content Container */}
       <div 
-        className="bg-light-black backdrop-blur-sm border border-gold border-dashed transition-all py-10 px-3 md:px-5 max-w-[93%] sm:max-w-lg text-sm sm:text-base flex items-center flex-col justify-center m-auto rounded-lg shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] relative"
+        className="bg-light-black backdrop-blur-sm border border-gold border-dashed transition-all py-10 px-3 md:px-5 max-w-[93%] sm:max-w-lg text-sm sm:text-base flex items-center flex-col justify-center m-auto rounded-lg relative"
         id='verificationResultContainer'>
 
         {/* Header */}

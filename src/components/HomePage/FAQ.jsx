@@ -24,13 +24,13 @@ const FAQ = () => {
 
   return (
     <section className='py-[100px] px-[20px] text-white '>
-        <h1 className='text-[gold] text-center text-xl mb-2 tracking-wider font-bold'>FAQ</h1>
+        <h1 className='text-gold text-center text-xl mb-2 tracking-wider font-bold'>FAQ</h1>
       <h2 className='sm:text-4xl text-3xl max-xs:text-2xl font-bold text-center'>Your Questions, Answered</h2>
 
        {/* FAQ Content Section */}
        <div
         id="faq_Con"
-        className="flex hidden-sec flex-col justify-between w-full gap-7 px-5 py-10 mt-10 rounded-lg shadow-xl md:px-10 md:w-[95%] max-sm:py-7 max-xs:py-5 m-auto border border-dashed border-[gold]  bg-gray transition-all duration-700"
+        className="flex hidden-sec flex-col justify-between w-full gap-7 px-5 py-10 mt-10 rounded-lg shadow-xl md:px-10 md:w-[95%] max-sm:py-7 max-xs:py-5 m-auto border border-dashed border-gold  bg-gray transition-all duration-700"
       >
         {FaqInfo.map((item, index) => (
           <div className="pb-7 border-b border-[rgb(94,94,94)]  max-xs:pb-5" id="Faq" key={index}>

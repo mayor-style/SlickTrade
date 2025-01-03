@@ -9,7 +9,7 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
   );
 
   return (
-    <div className="bg-gray my-8 text-white w-full border border-dark-gray px-4 py-6 rounded-lg ">
+    <div className="bg-gray my-8 text-white w-full boder border-dark-gray px-4 py-6 rounded-lg ">
       <div className="mb-4">{tableTitle}</div> {/* Use the custom title */}
       <div className="flex flex-wrap gap-4 mb-4">
         <input

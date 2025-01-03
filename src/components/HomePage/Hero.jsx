@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section className='bg-hero bg-cover bg-center pt-[140px] pb-[100px] text-center text-white m-auto flex justify-center items-center px-[15px] sm:px-[50px] lg:px-[100px]  relative xl:px-[150px] flex-col gap-5 border-b border-dashed border-[gold] overflow-hidden'>
+    <section className='bg-hero bg-cover bg-center pt-[140px] pb-[100px] text-center text-white m-auto flex justify-center items-center px-[15px] sm:px-[50px] lg:px-[100px]  relative xl:px-[150px] flex-col gap-5 border-b border-dashed border-gold overflow-hidden'>
       <div className="absolute  h-full w-full bg-black opacity-40"></div>
       <motion.div 
       initial={{y:40, opacity:0}}

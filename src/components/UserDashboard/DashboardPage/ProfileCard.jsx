@@ -14,7 +14,7 @@ const ProfileCard =  ({ userName, userEmail, onStartTransaction, level }) => {
   };
 
   return (
-    <div className="flex flex-wrap border-dark-gray border items-center justify-between gap-6 max-sm:gap-8 bg-gray rounded-lg py-6 px-4 mb-10">
+    <div className="flex flex-wrap bordr-dark-gray border items-center justify-between gap-6 max-sm:gap-8 bg-gray rounded-lg py-6 px-4 mb-10">
     <div className="flex items-center gap-2">
       <div className="text-white sm:text-6xl text-5xl border-gold rounded-full border-[2px]">
         <FaUserCircle />

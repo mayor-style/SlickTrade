@@ -14,14 +14,14 @@ const About = () => {
   return (
     <div className=' flex max-lg:block w-full bg-gray overflow-hidden text-white gap-10  lg:py-[100px] py-[70px] px-[15px] md:px-[20px]'>
       <div className="l:h-[500px] hidden-fadeLeft max-lg:hidden relative">
-        <img src={about} alt="About image" className='max-w-[400px] l:max-w-[500px] h-full object-cover rounded-3xl relative z-10 border border-[gold] border-dashed' />
-        <div className="absolute h-full w-full bg-[black] borde border-[gold] border-dashed top-0 rounded-3xl py-10 -rotate-3"></div>
+        <img src={about} alt="About image" className='max-w-[400px] l:max-w-[500px] h-full object-cover rounded-3xl relative z-10 border border-gold border-dashed' />
+        <div className="absolute h-full w-full bg-[black] borde border-gold border-dashed top-0 rounded-3xl py-10 -rotate-3"></div>
       </div>
 
       <div className="">
         <h1 className='sm:text-4xl hidden-sec text-3xl  mb-5 '>
           Why Choose
-        <span className='text-white font-bold'><span className='text-[gold]'> Slick</span>Trade?</span>
+        <span className='text-white font-bold'><span className='text-gold'> Slick</span>Trade?</span>
         </h1>
 
         <div className="hidden-fadeRight">

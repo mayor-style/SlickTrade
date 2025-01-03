@@ -30,7 +30,7 @@ const Testimonial = () => {
   return (
     <section className='overflow-hidden py-[100px] px-[20px] bg-gray'>
        <div className="mb-10 text-white text-center  transition-all duration-700 hidden-sec">
-          <h1 className="text-[gold] text-xl mb-2 tracking-wider font-bold">TESTIMONIAL</h1>
+          <h1 className="text-gold text-xl mb-2 tracking-wider font-bold">TESTIMONIAL</h1>
           <h2 className="sm:text-4xl text-3xl max-xs:text-2xl font-bold">Reviews and Comments</h2>
         </div>
 
@@ -38,7 +38,7 @@ const Testimonial = () => {
           {testimony.map((testify) => (
             <div
               key={testify.id}
-              className="relative hidden-scale max-w-[350px] h-auto rounded-lg border bg-black p-6 transition duration-500 hidden-sec text-white group  hover:border-black hover:bg-[gold] hover:shadow-xl hover:bg-opacity-70 hover:text-blac border-dashed border-[gold]"
+              className="relative hidden-scale max-w-[350px] h-auto rounded-lg border bg-black p-6 transition duration-500 hidden-sec text-white group  hover:border-black hover:bg-gold hover:shadow-xl hover:bg-opacity-70 hover:text-blac border-dashed border-gold"
             >
               <div className="flex items-center mb-2 gap-6">
                 <img
@@ -51,7 +51,7 @@ const Testimonial = () => {
                   <p className=" text-xs tracking-wide transition duration-500 my-1 py-1 border bg-gray border-dark-gray text-white font-medium text-center rounded-full group-hover:font-semibold group-hover:border-black group-hover:bg-white group-hover:text-black">{testify.status}</p>
                 </div>
               </div>
-              <div className="absolute transition duration-500  top-[-25px] right-5 text-[gold] group-hover:text-white opacity-90 text-4xl">
+              <div className="absolute transition duration-500  top-[-25px] right-5 text-gold group-hover:text-white opacity-90 text-4xl">
                 <FaQuoteRight />
               </div>
               <div className="text-sm  transition duration-500  leading-6 mb-4">

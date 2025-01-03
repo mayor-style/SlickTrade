@@ -13,7 +13,7 @@ const SignUpLoginPage = () => {
   
    {/* Form Container */}
       <div 
-        className="bg-light-black backdrop-blur-sm border border-gold border-dashed hidden-scale transition-all py-10 px-5 md:px-12 max-w-[90%] sm:max-w-md lg:max-w-lg text-sm sm:text-base flex items-center flex-col justify-center m-auto rounded-lg shadow-[0px_4px_12px_rgba(255,215,0,0.4),_0px_8px_24px_rgba(184,134,11,0.7)] relative"
+        className="bg-light-black backdrop-blur-sm border border-gold border-dashed hidden-scale transition-all py-10 px-5 md:px-12 max-w-[90%] sm:max-w-md lg:max-w-lg text-sm sm:text-base flex items-center flex-col justify-center m-auto rounded-lg  relative"
         id='formContainer'>
         
         {/* Title */}
