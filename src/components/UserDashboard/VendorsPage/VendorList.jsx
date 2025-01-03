@@ -2,14 +2,14 @@ import React from 'react';
 import VendorCard from './VendorCard';
 import HighlightLastWord from '../../HighlightLastWord';
 
-const VendorList = ({ vendors }) => {
+const VendorList = ({ vendors, selectedVendor }) => {
   return (
     <div className="">
       {vendors && vendors.length > 0 ? (
         // Render vendor cards in a grid layout
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-8 gap-4">
           {vendors.map((vendor) => (
-            <VendorCard key={vendor.id} vendor={vendor} />
+            <VendorCard key={vendor.id} onSelect={selectedVendor} vendor={vendor} />
           ))}
         </div>
       ) : (

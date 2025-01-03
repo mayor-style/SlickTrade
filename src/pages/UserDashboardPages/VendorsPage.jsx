@@ -4,6 +4,7 @@ import SearchAndFilters from '../../components/UserDashboard/VendorsPage/SearchA
 import VendorList from '../../components/UserDashboard/VendorsPage/VendorList';
 import DashboardWelcomeMessage from '../../components/DashboardWelcomeMessage'
 import picture from '../../assets/imgs/user2.jpg'
+import VendorProfileModal from '../../components/UserDashboard/TransactionInitiationPage/VendorProfileModal';
 
 const VendorsPage = () => {
 
@@ -26,6 +27,10 @@ const VendorsPage = () => {
           verified: true,
           rating: 4.8,
           transactionLimit: '$50 - $500',
+          rates: {
+           paypal:1200,
+           Zelle:1400,
+          },
         },
         {
           id: 2,
@@ -36,6 +41,10 @@ const VendorsPage = () => {
           rating: 4.5,
           isBlocked:true,
           transactionLimit: '$50 - $1000',
+          rates: {
+            paypal:1200,
+            Zelle:1400,
+           },
         },
         {
           id: 3,
@@ -46,6 +55,10 @@ const VendorsPage = () => {
           verified: true,
           rating: 3,
           transactionLimit: '$50 - $500',
+          rates: {
+            paypal:1200,
+            Zelle:1400,
+           },
         },
         {
           id: 4,
@@ -55,6 +68,10 @@ const VendorsPage = () => {
           verified: true,
           rating: 4.9,
           transactionLimit: '$50 - $800',
+          rates: {
+            paypal:1200,
+            Zelle:1400,
+           },
         },
         {
           id: 5,
@@ -64,6 +81,10 @@ const VendorsPage = () => {
           verified: false,
           rating: 2.8,
           transactionLimit: '$50 - $300',
+          rates: {
+            paypal:1200,
+            Zelle:1400,
+           },
         },
         {
           id: 6,
@@ -74,6 +95,10 @@ const VendorsPage = () => {
           rating: 4,
           isFavorite:true,
           transactionLimit: '$50 - $2000',
+          rates: {
+            paypal:1200,
+            Zelle:1400,
+           },
         },
         {
           id: 7,
@@ -84,6 +109,10 @@ const VendorsPage = () => {
           rating: 4,
           isBlocked:true,
           transactionLimit: '$50 - $1500',
+          rates: {
+            paypal:1000,
+            Zelle:1240,
+           },
         },
         {
           id: 8,
@@ -94,6 +123,10 @@ const VendorsPage = () => {
           rating: 5,
           isFavorite:true,
           transactionLimit: '$50 - $5000',
+          rates: {
+            paypal:1200,
+            Zelle:1400,
+           },
         },
         {
             id: 9,
@@ -104,6 +137,10 @@ const VendorsPage = () => {
             rating: 1,
             isFavorite:true,
             transactionLimit: '$50 - $200',
+            rates: {
+              paypal:1200,
+              Zelle:1400,
+             },
           },
         {
             id: 10,
@@ -113,10 +150,15 @@ const VendorsPage = () => {
             verified: true,
             rating: 5,
             transactionLimit: '$50 - $500',
+            rates: {
+              paypal:1200,
+              Zelle:1400,
+             },
           },
         // Add more vendors as needed
       ];
 
+        const [selectedVendor, setSelectedVendor] = useState(null);
       const handleTabChange = (index) => setActiveTab(index);
       const handleSearch = (e) => setSearchTerm(e.target.value);
       const handleFilter = (e) => setFilter(e.target.value);
@@ -140,7 +182,13 @@ const VendorsPage = () => {
         <div className="bg-gray p-4 py-10 rounded-lg">
       <TabsNavigation activeTab={activeTab} onTabChange={handleTabChange} tabs={tabs} />
       <SearchAndFilters searchTerm={searchTerm} onSearch={handleSearch} onFilter={handleFilter} />
-      <VendorList vendors={filteredVendors} />
+      <VendorList vendors={filteredVendors} selectedVendor={setSelectedVendor} />
+
+      <VendorProfileModal
+        vendor={selectedVendor}
+        onClose={() => setSelectedVendor(null)}
+
+      />
     </div>
       
     </div>
