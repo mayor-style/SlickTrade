@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 
 const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=false, onRowClick }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -112,7 +113,7 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
       </div>
       }
       <div className="flex justify-center items-center mt-10 hover:bg-opacity-80 transition-all max-sm:text-sm active:bg-opacity-100 duration-200 ease-in-out rounded-lg bg-gold text-black py-2">
-      <button>Start New Transaction</button>
+      <Link to={'/user/transaction-initiate'}><button>Start New Transaction</button></Link>
       </div>
 
       
