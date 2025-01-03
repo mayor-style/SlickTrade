@@ -20,6 +20,7 @@ import Messages_Chats from './pages/UserDashboardPages/Messages_Chats';
 import ProfileSettingsPage from './pages/UserDashboardPages/ProfileSettingsPage';
 import Support_HelpPage from './pages/UserDashboardPages/Support_HelpPage';
 import NotificationsPage from './pages/UserDashboardPages/NotificationsPage';
+import TransactionInitiationPage from './pages/UserDashboardPages/TransactionInitiationPage';
 
 function App() {
   const location = useLocation();
@@ -61,6 +62,7 @@ function App() {
           <Route path="profile-settings" element={<ProfileSettingsPage />} /> {/* Child */}
           <Route path="support" element={<Support_HelpPage />} /> {/* Child */}
           <Route path="notifications" element={<NotificationsPage />} /> {/* Child */}
+          <Route path="transaction-initiate" element={<TransactionInitiationPage />} /> {/* Child */}
         </Route>
       </Routes>
       {!shouldHideNavAndFooter && <Footer />}

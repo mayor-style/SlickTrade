@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import picture from '../../../assets/imgs/user.jpg'
 
-const VendorCard = ({ vendor }) => {
+const VendorCard = ({ vendor, onSelect }) => {
   return (
     <div className="p-4 py-6 border border-dark-gray backdrop-blur-md bg-glass h-full w-full rounded-lg text-white space-y-4">
       <div className="flex items-center space-x-3">
@@ -35,7 +35,7 @@ const VendorCard = ({ vendor }) => {
       </div>
 
       <div className="flex items-center text-sm space-x-2">
-        <button className="px-4 py-2 bg-gold rounded-lg hover:bg-opacity-80 text-black">
+        <button className="px-4 py-2 bg-gold rounded-lg hover:bg-opacity-80 text-black"   onClick={() => onSelect(vendor)}>
           View Profile
         </button>
        {vendor.isBlocked ?

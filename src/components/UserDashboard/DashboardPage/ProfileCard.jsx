@@ -4,6 +4,7 @@ import { GiDiamondTrophy} from "react-icons/gi";
 import { MdVerified,  MdOutlineEmojiEmotions } from 'react-icons/md';
 import InfoCard from '../InfoCard'
 import ProgressBadgeCard from './ProgressBadgeCard';
+import {Link} from 'react-router-dom'
 
 const ProfileCard =  ({ userName, userEmail, onStartTransaction, level }) => {
 
@@ -26,7 +27,7 @@ const ProfileCard =  ({ userName, userEmail, onStartTransaction, level }) => {
           className="bg-gold hover:bg-opacity-80 transition-all ease-in-out duration-200 max-md:text-sm  py-1 px-3 rounded-md transform translate-y-2" 
           onClick={onStartTransaction || undefined}
         >
-          Start a Transaction
+          <Link to={'/user/transaction-initiate'}>Start a Transaction</Link>
         </button>
       </div>
     </div>
