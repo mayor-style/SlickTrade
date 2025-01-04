@@ -5,7 +5,7 @@ const DropdownSelect = ({ label, options, value, onChange }) => {
     <div className="mb-4">
       <label className="block text-white mb-2">{label}</label>
       <select
-        className="w-full p-2 border border-gray-300 rounded-lg bg-gray text-white"
+        className="w-full p-2 border border-dark-gray rounded-lg bg-gray text-white"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       >

@@ -26,7 +26,6 @@ const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
   return (
     <div className="fixed transition-all duration-300 ease-in-out inset-0 bg-glass backdrop-blur-sm z-50 px-4 text-white flex justify-center items-center">
     <div className="bg-gray text-white w-full md:w-[55%] h-[90%] rounded-t-2xl md:rounded-xl p-6 overflow-y-auto relative shadow-lg scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
-
      {/* Header Section */}
      <div className="flex justify-between items-center border-b border-dark-gray pb-3 mb-4">
       <h3 className="text-xl font-bold text-white">Confirmation Summary</h3>
@@ -38,7 +37,7 @@ const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
             ✕
           </button>
           </div>
-
+          <h1 className=' my-4 font-bold text-lg'> You've selected Vendor {transactionDetails.vendorName}. Review the details below and confirm to start your transaction.</h1>
       <p className="text-sm text-gray-300">Service: <span className="font-light text-white">{transactionDetails.service}</span></p>
       <p className="text-sm text-gray-300">Amount: <span className="font-light text-white">${amount}</span></p>
       <p className="text-sm text-gray-300">Vendor: <span className="font-light text-white">{transactionDetails.vendorName}</span></p>
