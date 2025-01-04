@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PrimaryButton from '../../PrimaryButton';
+import Spinner from '../../Spinner';
 
 const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
   if(!transactionDetails) return null;
+
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(()=>{
+    if(transactionDetails){
+      setIsLoading(true)
+    const timer=  setTimeout(()=>{
+        setIsLoading(false)
+      }, 1000);
+
+      return () => clearTimeout(timer); // Cleanup timer on unmount
+    }
+
+  },[transactionDetails])
 
   const generalDollarToNairaRate = currentRate; // General conversion rate
   const vendorRate = transactionDetails.Rate; // Vendor-specific rate per dollar
@@ -25,7 +40,12 @@ const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
 
   return (
     <div className="fixed transition-all duration-300 ease-in-out inset-0 bg-glass backdrop-blur-sm z-50 px-4 text-white flex justify-center items-center">
-    <div className="bg-gray text-white w-full md:w-[55%] h-[90%] rounded-t-2xl md:rounded-xl p-6 overflow-y-auto relative shadow-lg scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
+      {
+        isLoading? ( <div className='text-center '>
+           <Spinner  lg={true}/>
+        </div> ):
+
+    (<div className="bg-gray text-white w-full md:w-[55%] h-[90%] rounded-t-2xl md:rounded-xl p-6 overflow-y-auto relative shadow-lg scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
      {/* Header Section */}
      <div className="flex justify-between items-center border-b border-dark-gray pb-3 mb-4">
       <h3 className="text-xl font-bold text-white">Confirmation Summary</h3>
@@ -86,6 +106,9 @@ const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
         <PrimaryButton text={'Confirm Transaction'} />
       </div>
     </div>
+    
+    )
+  }
     </div>
     
   );

@@ -62,7 +62,7 @@ const TransactionForm = ({ onFindVendors, currentRate }) => {
         />
         {/* Naira Conversion Display */}
         {formData.amount && (
-          <div className="my-4 mt-6 bg-gray border border-dark-gray p-2 rounded-lg text-gray">
+          <div className="my-4 mt-6 bg-gray border border-dark-gray p-2 max-sm:text-sm rounded-lg text-gray">
             <p>
               <strong>Converted Amount (NGN):</strong> ₦{nairaAmount || '0'}
             </p>

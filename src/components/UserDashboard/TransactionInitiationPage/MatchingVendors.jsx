@@ -33,7 +33,7 @@ const MatchingVendors = ({ vendors, onSelectVendor, startMatchingVendors }) => {
     <div className="mt-6">
       {isLoading ? (
         // Show Spinner during loading
-        <div className="text-white tracking-wide text-center sm:text-xl my-4 px-2 py-4 rounded-lg backdrop-blur-lg bg-glass font-medium">
+        <div className="text-white tracking-wide text-center sm:text-lg my-4 px-2 py-4 rounded-lg backdrop-blur-lg bg-glass font-medium">
           <Spinner message={'Matching you with trusted Vendors...'} />
         </div>
       ) : (
@@ -41,7 +41,7 @@ const MatchingVendors = ({ vendors, onSelectVendor, startMatchingVendors }) => {
         startMatchingVendors ? (
           vendors.length > 0 ? (
             <div ref={specificSectionRef}>
-              <h3 className="text-white tracking-wide text-center sm:text-xl my-4 px-2 py-4 rounded-lg backdrop-blur-lg bg-glass font-medium">
+              <h3 className="text-white tracking-wide text-center text-sm xs:text-lg sm:text-xl my-4 px-2 py-4 rounded-lg backdrop-blur-lg bg-glass font-medium">
                 Here are trusted vendors ready to assist you. Select one to proceed.
               </h3>
               <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 gap-4">
