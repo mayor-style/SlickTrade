@@ -10,7 +10,7 @@ const VerifyAccountBanner = () => {
       {/* Responsive Collapsible Version */}
       <div className=" bg-gray border border-dashed border-gold p-4 rounded-lg mb-4">
         <div className="flex cursor-pointer justify-between mb-2 items-center" onClick={()=>setIsShow(!isShow)}>
-        <h2 className="xs:text-lg text-gold font-semibold">
+        <h2 className="xs:text-lg text-white font-semibold">
           Unlock Higher Transaction Limits!
         </h2>
         <span className='text-lg transition-all ease-in-out duration-200 cursor-pointer' onClick={()=>setIsShow(!isShow)}>
