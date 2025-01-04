@@ -33,7 +33,6 @@ const Sidebar = () => {
     { name: "Dashboard", path: "/user/dashboard", icon: <RiDashboardLine /> },
     { name: "Transactions", path: "/user/transactions", icon: <MdOutlineSwapHoriz /> },
     { name: "Vendors", path: "/user/vendors", icon: <HiOutlineUsers /> },
-    { name: "Wallet", path: "/user/wallet", icon: <FaWallet /> },
     { name: "Messages/Chat", path: "/user/messages", icon: <BsChatDots /> },
     { name: "Profile Settings", path: "/user/profile-settings", icon: <FaCogs /> },
     { name: "Support/Help", path: "/user/support", icon: <FaQuestionCircle /> },
