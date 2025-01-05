@@ -7,7 +7,7 @@ const VendorList = ({ vendors, selectedVendor }) => {
     <div className="">
       {vendors && vendors.length > 0 ? (
         // Render vendor cards in a grid layout
-        <div className="grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 gap-y-8 gap-4">
+        <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 gap-y-8 gap-4">
           {vendors.map((vendor) => (
             <VendorCard key={vendor.id} onSelect={selectedVendor} vendor={vendor} />
           ))}

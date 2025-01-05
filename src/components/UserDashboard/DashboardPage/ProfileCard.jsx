@@ -32,7 +32,7 @@ const ProfileCard =  ({ userName, userEmail, onStartTransaction, level }) => {
       </div>
     </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
       <InfoCard icon={<MdVerified />} label="Verification Status" value="70% Complete" content={`Get your account verified today to increase your authenticity.`}/>
       <InfoCard icon={<FaMedal />} label="Badge Status" value={level || 'Beginner'} levelIcon={icons['beginner']} content={'Continue to stay active, and transact ethically to grow to the next milestone and enjoy premium benefits!'} />
       <ProgressBadgeCard />

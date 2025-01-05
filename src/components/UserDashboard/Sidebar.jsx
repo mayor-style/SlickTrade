@@ -14,9 +14,24 @@ const Sidebar = () => {
  
   const [isSearch, setIsSearch] =useState(false);
   const [isOpen, setIsopen] = useState(false);
+  const [isMdOrLess, setIsMdOrLess] = useState(false);
+
+   // Check if the screen width is `md` or less
+   const updateScreenWidth = () => {
+    setIsMdOrLess(window.innerWidth <= 768); // Tailwind `md` breakpoint is 768px
+  };
 
   useEffect(() => {
-    if (isOpen) {
+    updateScreenWidth();
+    window.addEventListener('resize', updateScreenWidth);
+
+    return () => {
+      window.removeEventListener('resize', updateScreenWidth);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && isMdOrLess) {
       document.body.classList.add('scroll-lock');
     } else {
       document.body.classList.remove('scroll-lock');
@@ -36,7 +51,7 @@ const Sidebar = () => {
     { name: "Messages/Chat", path: "/user/messages", icon: <BsChatDots /> },
     { name: "Profile Settings", path: "/user/profile-settings", icon: <FaCogs /> },
     { name: "Support/Help", path: "/user/support", icon: <FaQuestionCircle /> },
-    ...(isOpen
+    ...(isOpen && isMdOrLess
         ? [{ name: "Notifications", path: "/user/notifications", icon: <FaBell /> }]
         : []),
   ];
