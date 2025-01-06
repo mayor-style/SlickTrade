@@ -69,9 +69,9 @@ const ChatPage = () => {
         subtext="Communicate with your vendors for updates, clarifications, or queries."
       />
 
-      <div className="flex h-screen">
+      <div className="flex h-full">
         {/* Sidebar: Chat List */}
-        <aside className={`lg:w-1/3 max-lg:w-[100%] md:rounded-tl-lg max-lg:rounded-lg ${showMessages ? "max-lg:hidden" : ""} md:rounded-bl-lg max-lg:border-none bg-gray border-r overflow-y-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray border-dark-gray`}>
+        <aside className={`lg:w-1/3 max-lg:w-[100%] md:rounded-tl-lg max-lg:rounded-lg ${showMessages ? "max-lg:hidden" : ""} md:rounded-bl-lg max-lg:border-none bg-gray border-r overflow-y-auto scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray border-dark-gray pb-[200px]`}>
           {/* Search input */}
           <div className="p-[19px] border-b border-dark-gray">
             <div className="relative">
@@ -129,13 +129,13 @@ const ChatPage = () => {
               <AiOutlineUser className="text-3xl text-gray" />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-white">{activeChat.name}</h1>
-              <p className="text-sm">Active now</p>
+              <h1 className="max-xs:text-sm text-lg font-bold text-white">{activeChat.name}</h1>
+              <p className="max-xs:text-xs  text-sm">Active now</p>
             </div>
           </header>
 
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 px-2 max-md:text-sm max-xs:text-xs space-y-4 pb-[200px]">
             {activeChat.messages.map((message) => (
               <div
                 key={message.id}

@@ -8,8 +8,8 @@ const LinkedAccountsSection = () => {
       <p>PayPal: Linked</p>
       <p>Google: Linked</p>
       <div className="flex items-center mt-4 gap-[20px]">
-      <Button text="Link New Account" className="" />
-      <Button text="Unlink Account" />
+      <Button text="Link New Account" className="max-xs:text-sm" />
+      <Button text="Unlink Account" className="max-xs:text-sm"/>
       </div>
     </Card>
   );

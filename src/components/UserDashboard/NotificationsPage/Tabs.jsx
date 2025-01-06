@@ -14,7 +14,7 @@ const Tabs = ({ activeTab, onTabChange }) => {
         <button
           key={tab.key}
           onClick={() => onTabChange(tab.key)}
-          className={`flex items-center border rounded-full md:text-sm border-dark-gray gap-2 px-4 py-2 ${
+          className={`flex items-center border rounded-full max-xs:text-xs max-md:text-sm border-dark-gray gap-2 px-4 py-2 ${
             activeTab === tab.key ? 'text-gold  bg-glass rounded-full' : 'text-gray'
           }`}
         >

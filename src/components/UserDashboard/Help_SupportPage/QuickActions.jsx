@@ -11,7 +11,7 @@ const actions = [
 
 const QuickActions = () => {
   return (
-    <div className="flex flex-wrap max-md:text-sm justify-center gap-4 px-4">
+    <div className="flex flex-wrap max-md:text-sm justify-center gap-4 px-2">
       {actions.map((action, index) => (
         <a
           key={index}

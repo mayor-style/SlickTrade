@@ -14,7 +14,6 @@ const SupportPage = () => {
 
       {/* Header Section */}
       <DashboardWelcomeMessage Header={'Support &'} spanHeader={'Help'} subtext={"Need Assistance? We're here to help. Browse our resources or contact us directly. "} />
-
     <div className="bg-gray relative backdrop-blur-lg rounded-lg p-4">
       {/* Search Bar */}
       <div className="py-6">
@@ -32,7 +31,7 @@ const SupportPage = () => {
       </div>
 
       {/* Contact Form */}
-      <div className="py-6 bg-glass shadow-lg rounded-lg max-w-4xl mx-auto p-6">
+      <div className="py-6 bg-glass shadow-lg rounded-lg max-w-4xl mx-auto px-4">
         <ContactForm />
       </div>
 

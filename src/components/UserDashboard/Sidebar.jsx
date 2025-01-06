@@ -164,7 +164,7 @@ const Sidebar = () => {
         </div>
 
         {/* Dynamic Content */}
-        <div className="flex-1 p-4 overflow-auto ">
+        <div className="flex-1 p-4 px-2 overflow-auto ">
           <Outlet />
         </div>
 

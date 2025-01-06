@@ -4,7 +4,7 @@ import PrimaryButton from '../../PrimaryButton'
 
 const ContactForm = () => {
   return (
-    <form className="space-y-4 text-white ">
+    <form className="space-y-4 max-xs:text-sm text-white ">
       <input type="text" placeholder="Full Name" className="w-full p-3 bg-glass border border-dark-gray rounded-lg" />
       <input type="email" placeholder="Email Address" className="w-full bg-glass border border-dark-gray p-3 rounded-lg" />
       <select className="w-full p-3 bg-glass border border-dark-gray  rounded-lg">
