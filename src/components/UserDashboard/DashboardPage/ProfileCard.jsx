@@ -22,13 +22,17 @@ const ProfileCard =  ({ userName, userEmail, onStartTransaction, level }) => {
       </div>
       <div className="max-sm:text-sm">
         <p>{userName || 'johnFundz'}</p>
-        <p className="font-medium text-white">{userEmail || 'Johndoe@gmail.com'}</p>
-        <button 
-          className="bg-gold hover:bg-opacity-80 transition-all ease-in-out duration-200 max-md:text-sm  py-1 px-3 rounded-md transform translate-y-2" 
+        <p className="font-medium mb-1 text-white">{userEmail || 'Johndoe@gmail.com'}</p>
+
+        
+          <Link to={'/user/transaction-initiate'}
+           className="bg-gold hover:bg-opacity-80 transition-all ease-in-out duration-200 max-md:text-sm  py-1 px-3 rounded-md transform mt-4" 
           onClick={onStartTransaction || undefined}
-        >
-          <Link to={'/user/transaction-initiate'}>Start a Transaction</Link>
+          >
+            <button >
+            Start a Transaction
         </button>
+        </Link>
       </div>
     </div>
 

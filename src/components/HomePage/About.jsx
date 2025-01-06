@@ -20,8 +20,8 @@ const About = () => {
 
       <div className="">
         <h1 className='sm:text-4xl hidden-sec text-3xl  mb-5 '>
-          Why Choose
-        <span className='text-white font-bold'><span className='text-gold'> Slick</span>Trade?</span>
+          About
+        <span className='text-white font-bold'><span className='text-gold'> Slick</span>Trade</span>
         </h1>
 
         <div className="hidden-fadeRight">

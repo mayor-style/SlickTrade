@@ -20,14 +20,14 @@ const FAQSection = () => {
         {faqData.map((faq, index) => (
           <div
             key={index}
-            className={`border border-dark-gray rounded-lg p-3 cursor-pointer ${activeIndex === index ? "bg-dark-gray" : "bg-gray"}`}
+            className={`border border-dark-gray rounded-lg p-3 cursor-pointer ${activeIndex === index ? "" : "bg-gray"}`}
             onClick={() => toggleFAQ(index)}
           >
-            <h3 className="text-lg font-semibold flex justify-between items-center">
+            <h3 className="xs:text-lg text-sm font-semibold flex justify-between items-center">
               {faq.question}
               <span>{activeIndex === index ? "-" : "+"}</span>
             </h3>
-            {activeIndex === index && <p className="mt-2 ">{faq.answer}</p>}
+            {activeIndex === index && <p className="mt-2 max-xs:text-xs">{faq.answer}</p>}
           </div>
         ))}
       </div>

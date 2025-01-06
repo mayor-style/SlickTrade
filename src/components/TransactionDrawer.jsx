@@ -1,13 +1,16 @@
 import React from 'react';
 import HighlightLastWord from '../components/HighlightLastWord'
+import useOnScreenAnimation from './UseOnScreenAnimation';
 
 
 const TransactionDrawer = ({ isOpen, onClose, transaction }) => {
+
+  useOnScreenAnimation("hidden-sec", "show-sec")
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-glass backdrop-blur-sm z-50 flex items-end md:items-center justify-center">
-      <div className="bg-gray text-white w-full md:w-[40%] h-[90%] rounded-t-2xl md:rounded-xl p-6 overflow-y-auto relative shadow-lg scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
+    <div className="fixed inset-0 hidden-sec bg-glass backdrop-blur-sm z-50 flex items-end md:items-center justify-center">
+      <div className="bg-gray text-white w-full md:w-[40%] h-[90%]  rounded-t-2xl md:rounded-xl p-6 overflow-y-auto relative shadow-lg scrollbar-thin scrollbar-thumb-dark-gray scrollbar-track-gray">
         {/* Header Section */}
         <div className="flex justify-between items-center border-b border-dark-gray pb-3 mb-4">
           <div>

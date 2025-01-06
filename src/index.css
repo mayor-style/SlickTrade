@@ -69,7 +69,7 @@ p{
 
  .hidden-sec{
     opacity: 0;
-    transition: all .8s ease;
+    transition: all .2s ease;
     filter: blur(5px);
    transform-origin: bottom;
     transform:translateY(25%);
@@ -78,7 +78,7 @@ p{
  .show-sec{
      opacity: 1;
      filter: blur(0);
-     transition: all .8s ease;
+     transition: all .3s ease;
      transform: translateY(0%);
      transform-origin: top;
  }

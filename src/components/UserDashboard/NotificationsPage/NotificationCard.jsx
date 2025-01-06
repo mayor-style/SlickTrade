@@ -6,7 +6,7 @@ const NotificationCard = ({ icon, title, subtext, timestamp, actionLabel, onActi
       <div className="text-gold">{icon}</div>
       <div className="flex-1">
         <h3 className="font-bold">{title}</h3>
-        <p className="text-gray">{subtext}</p>
+        <p className="text-white">{subtext}</p>
         <small className="text-gray">{timestamp}</small>
       </div>
       {actionLabel && (

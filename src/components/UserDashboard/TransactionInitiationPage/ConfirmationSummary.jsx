@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PrimaryButton from '../../PrimaryButton';
 import Spinner from '../../Spinner';
+import useOnScreenAnimation from '../../UseOnScreenAnimation';
 
 const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
   if(!transactionDetails) return null;
+
+  useOnScreenAnimation("hidden-sec", "show-sec")
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -39,7 +42,7 @@ const ConfirmationSummary = ({ transactionDetails, currentRate, onClose }) => {
   const finalPayoutInNaira = amountInNairaAtVendorRate - feesInNaira;
 
   return (
-    <div className="fixed transition-all duration-300 ease-in-out inset-0 bg-glass backdrop-blur-sm z-50 px-4 text-white flex justify-center items-center">
+    <div className="fixed transition-all duration-300 ease-in-out inset-0 bg-glass backdrop-blur-sm z-50 px-4 text-white flex justify-center hidden-sec items-center">
       {
         isLoading? ( <div className='text-center '>
            <Spinner  lg={true}/>

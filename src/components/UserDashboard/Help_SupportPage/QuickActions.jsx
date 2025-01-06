@@ -11,12 +11,12 @@ const actions = [
 
 const QuickActions = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 px-4">
+    <div className="flex flex-wrap max-md:text-sm justify-center gap-4 px-4">
       {actions.map((action, index) => (
         <a
           key={index}
           href={action.link}
-          className="flex items-center justify-center gap-2 bg-glass text-gold border border-dark-gray rounded-lg shadow-md px-6 py-3 hover:backdrop-blur-sm transition-all"
+          className="flex items-center justify-center gap-2 bg-glass text-gold border border-dark-gray rounded-lg shadow-md px-4 py-2 hover:backdrop-blur-sm transition-all"
         >
           {action.icon}
           <span className="font-medium text-white">{action.label}</span>

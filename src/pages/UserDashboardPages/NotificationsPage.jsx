@@ -14,12 +14,13 @@ const Notifications = () => {
   const handleTabChange = (tab) => setActiveTab(tab);
 
   return (
-    <div className="bg-glass rounded-xl backdrop-blur-sm text-white min-h-screen p-6">
+    <div className=" text-white min-h-screen ">
       {/* Header Section */}
-      <Header title="Notifications" subtitle="Stay updated with the latest activities on your account." />
+      <DashboardWelcomeMessage Header={"Notifications"} subtext="Stay updated with the latest activities on your account." />
       
-      {/* Tabs Section */}
-      <Tabs activeTab={activeTab} onTabChange={handleTabChange} />
+     <div className="bg-gray rounded-xl pb-[100px] p-4">
+       {/* Tabs Section */}
+       <Tabs activeTab={activeTab} onTabChange={handleTabChange} />
       
       {/* Search and Bulk Actions */}
       <div className="flex justify-center xl:justify-between items-center gap-4 flex-wrap mt-4">
@@ -32,13 +33,14 @@ const Notifications = () => {
         <NotificationsList notifications={notifications} />
       ) : (
         <EmptyState
-          icon="bell"
+          icon="🔔"
           title="You have no new notifications."
           subtitle="Check back later or explore the platform for more updates."
           cta="Go to Dashboard"
           onCtaClick={() => console.log('Go to Dashboard')}
         />
       )}
+     </div>
     </div>
   );
 };

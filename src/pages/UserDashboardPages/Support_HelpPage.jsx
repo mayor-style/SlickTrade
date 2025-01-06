@@ -1,7 +1,6 @@
 // src/pages/SupportPage.jsx
 import React from "react";
 import DashboardWelcomeMessage from '../../components/DashboardWelcomeMessage'
-import SupportHeader from "../../components/UserDashboard/Help_SupportPage/SupportHeader";
 import SearchBar from "../../components/UserDashboard/Help_SupportPage/SearchBar";
 import QuickActions from "../../components/UserDashboard/Help_SupportPage/QuickActions";
 import FAQSection from "../../components/UserDashboard/Help_SupportPage/FAQSection";
@@ -13,10 +12,10 @@ const SupportPage = () => {
   return (
     <div className=" relative min-h-screen">
 
-    <div className="bg-glass relative backdrop-blur-lg rounded-lg p-4">
       {/* Header Section */}
       <DashboardWelcomeMessage Header={'Support &'} spanHeader={'Help'} subtext={"Need Assistance? We're here to help. Browse our resources or contact us directly. "} />
 
+    <div className="bg-gray relative backdrop-blur-lg rounded-lg p-4">
       {/* Search Bar */}
       <div className="py-6">
         <SearchBar />

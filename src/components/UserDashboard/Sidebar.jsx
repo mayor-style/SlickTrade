@@ -143,7 +143,7 @@ const Sidebar = () => {
           {/* Icons */}
           <div className="admin-nav-right max-md:hidden sm:text-xl flex items-center gap-2 sm:gap-4">
             <Link
-              to="#notifications"
+              to="notifications"
               className="nav-icon bg-gray p-2 text-gold rounded-full hover:bg-gold hover:text-black transition-all ease-in-out duration-300"
             >
               <FaBell />

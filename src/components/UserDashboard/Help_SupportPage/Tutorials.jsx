@@ -22,7 +22,7 @@ const tutorialData = [
 
 const Tutorials = () => {
   return (
-    <section id="tutorials" className=" max-w-4xl mx-auto px-4 py-6">
+    <section id="tutorials" className=" max-w-4xl mx-auto px-0 py-6">
       <h2 className="text-2xl text-white font-bold text-center mb-6">Tutorials & Guides</h2>
       <div className="space-y-4">
         {tutorialData.map((tutorial, index) => (
@@ -33,7 +33,7 @@ const Tutorials = () => {
           >
             <div>
               <h3 className="text-lg text-white font-semibold">{tutorial.title}</h3>
-              <p className="text-white">{tutorial.description}</p>
+              <p className="text-white max-sm:text-sm">{tutorial.description}</p>
             </div>
             <FaPlayCircle className="text-gold text-3xl" />
           </a>

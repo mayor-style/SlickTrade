@@ -41,7 +41,7 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
               <th className="px-4 py-2">Transaction ID</th>
               <th className="px-4 py-2">Date</th>
               <th className="px-4 py-2">Amount</th>
-              <th className="px-4 py-2">Transaction Type</th>
+              <th className="px-4 py-2">Service</th>
               <th className="px-4 py-2">Vendor</th>
               <th className="px-4 py-2">Status</th>
             </tr>
@@ -112,9 +112,12 @@ const TransactionsTable = ({ transactions, rowsPerPage, tableTitle, viewAll=fals
         </button>
       </div>
       }
-      <div className="flex justify-center items-center mt-10 hover:bg-opacity-80 transition-all max-sm:text-sm active:bg-opacity-100 duration-200 ease-in-out rounded-lg bg-gold text-black py-2">
-      <Link to={'/user/transaction-initiate'}><button>Start New Transaction</button></Link>
-      </div>
+      
+      <Link to={'/user/transaction-initiate'}
+      className="flex justify-center items-center mt-10 hover:bg-opacity-80 transition-all max-sm:text-sm active:bg-opacity-100 duration-200 ease-in-out rounded-lg bg-gold text-black py-2"
+      >
+    <button>Start New Transaction</button></Link>
+    
 
       
     </div>
