@@ -20,6 +20,12 @@ module.exports = {
         "gold": '#d4af37', // Gold hex code
         "dark-gray": "rgb(94,94,94)",
         darkGold: '#B8860B', // Darker gold shade,
+        card: "#1e293b",
+        "card-foreground": "#e2e8f0",
+        popover: "#ffffff",
+        "popover-foreground": "#000000",
+        accent: "#2563eb",
+        "accent-foreground": "#ffffff",
 
       },
       screens:{

@@ -12,17 +12,12 @@ const ChartWidget = () => {
     datasets: [
       {
         label: leftFilter === 'weekly' ? 'Transactions Completed' : 'Transactions (Monthly)',
-        data: leftFilter === 'weekly' ? [5, 8, 6, 9, 7, 4, 6] : [50, 60, 70, 80, 90, 100, 120],
-        backgroundColor: '#ffd700',
-        borderColor: '#ffd700',
-        borderWidth: 1,
+        data: leftFilter === 'weekly' ? [5, 8, 6, 9, 7, 4, 6] : [50, 60, 70, 80, 90, 100, 120], backgroundColor: "#2563eb",
       },
       {
         label: leftFilter === 'weekly' ? 'Total Amounts Processed' : 'Amounts (Monthly)',
         data: leftFilter === 'weekly' ? [200, 300, 250, 400, 350, 150, 280] : [2000, 3000, 2500, 4000, 3500, 1500, 2800],
         backgroundColor: '#8ac926',
-        borderColor: '#8ac926',
-        borderWidth: 1,
       },
     ],
   };
@@ -43,13 +38,10 @@ const ChartWidget = () => {
 
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false,
     plugins: {
-      legend: { display: true, position: 'top' },
-    },
-    scales: {
-      x: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
-      y: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
+      legend: {
+        position: "top",
+      },
     },
   };
 

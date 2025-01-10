@@ -9,33 +9,50 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { Card, CardHeader, CardContent } from './BarChartUi/Card'; // ShadCN Card
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from './BarChartUi/Dropdown-menu-Chart'; // ShadCN DropdownMenu
+import { Button } from './BarChartUi/Button'; // ShadCN Button
+import { ChevronDownIcon } from 'lucide-react'; // Icon from ShadCN
 
+// Registering ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = ({ data, options, title, filterOptions, filterValue, onFilterChange }) => {
+const ShadBarChart = ({ data, options, title, filterOptions, filterValue, onFilterChange }) => {
   return (
-    <div className="bg-glass backdrop-blur-lg border border-dark-gray rounded-lg p-4">
-      <div className="flex justify-between gap-1 items-center mb-4">
+    <Card className="bg-glass backdrop-blur-lg border border-dark-gray rounded-lg">
+      {/* Card Header */}
+      <CardHeader className="flex justify-between items-center">
         <h2 className="text-lg font-semibold text-white">{title}</h2>
+        {/* Dropdown Filter */}
         {filterOptions && (
-          <select
-            value={filterValue}
-            onChange={onFilterChange}
-            className="bg-dark-gray text-white text-sm rounded-md px-2 py-1 border border-gray-500"
-          >
-            {filterOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="flex items-center text-white">
+                {filterOptions.find(option => option.value === filterValue)?.label || "Select Filter"}
+                <ChevronDownIcon className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {filterOptions.map(option => (
+                <DropdownMenuItem
+                  key={option.value}
+                  onClick={() => onFilterChange({ target: { value: option.value } })} // Mimicking native select onChange
+                >
+                  {option.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         )}
-      </div>
-      <div className="h-64">
-        <Bar data={data} options={options} />
-      </div>
-    </div>
+      </CardHeader>
+      {/* Card Content */}
+      <CardContent>
+        <div className="h-64">
+          <Bar data={data} options={options} />
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
-export default BarChart;
+export default ShadBarChart;

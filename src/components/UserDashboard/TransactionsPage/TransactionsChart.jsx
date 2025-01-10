@@ -23,9 +23,7 @@ const TransactionCharts = () => {
       {
         label:  'Vendors performance',
         data:  [50, 60, 70, 80, 90],
-        backgroundColor: '#ffd700',
-        borderColor: '#ffd700',
-        borderWidth: 1,
+        backgroundColor: "#2563eb",
       }],
     };
 
@@ -61,13 +59,10 @@ const TransactionCharts = () => {
 
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false,
     plugins: {
-      legend: { display: true, position: 'top' },
-    },
-    scales: {
-      x: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
-      y: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
+      legend: {
+        position: "top",
+      },
     },
   };
 

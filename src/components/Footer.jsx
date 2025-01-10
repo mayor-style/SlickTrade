@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
           
           {/* Copyright */}
-          <p className="text-sm text-gray-400">&copy; 2024 SlickTrade. All Rights Reserved.</p>
+          <p className="text-sm ">&copy; 2024 SlickTrade. All Rights Reserved.</p>
         </div>
 
         {/* Right Section: Links */}
