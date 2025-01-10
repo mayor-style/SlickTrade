@@ -19,7 +19,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const ShadBarChart = ({ data, options, title, filterOptions, filterValue, onFilterChange }) => {
   return (
-    <Card className="bg-glass backdrop-blur-lg border border-dark-gray rounded-lg">
+    <Card className="bg-light-black backdrop-blur-lg border border-gray rounded-lg">
       {/* Card Header */}
       <CardHeader className="flex justify-between items-center">
         <h2 className="text-lg font-semibold text-white">{title}</h2>

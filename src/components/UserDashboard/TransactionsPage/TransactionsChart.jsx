@@ -23,7 +23,9 @@ const TransactionCharts = () => {
       {
         label:  'Vendors performance',
         data:  [50, 60, 70, 80, 90],
-        backgroundColor: "#2563eb",
+        backgroundColor: '#ffd700',
+        borderColor: '#ffd700',
+        borderWidth: 1,
       }],
     };
 
@@ -34,7 +36,7 @@ const TransactionCharts = () => {
       {
         label: 'Dispute Count(monthly)',
         data: [5, 8, 3, 6, 15, 1],
-        backgroundColor: '#ff595e',
+        backgroundColor: 'gold',
         borderColor: '#ff595e',
         borderWidth: 2,
         tension: 0.3,
@@ -59,6 +61,7 @@ const TransactionCharts = () => {
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -87,7 +90,7 @@ const TransactionCharts = () => {
         </div>
 
         {/* Category Distribution Pie Chart */}        
-        <div className="bg-glass backdrop-blur-lg border border-dark-gray w-full rounded-lg p-4">
+        <div className="bg-light-black backdrop-blur-lg border border-gray w-full rounded-lg p-4">
           <h2 className="text-white font-semibold text-lg mb-4">
             Category <span>Distribution</span>
           </h2>

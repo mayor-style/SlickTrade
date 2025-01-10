@@ -58,7 +58,7 @@ const Sidebar = () => {
 
 
   return (
-    <div className="h-full bg-hero bg-cover bg-center  relative flex ">
+    <div className="h-full bg-light-black bg-cover bg-center  relative flex ">
         {/*OVERLAY */}
         <div className={`absolute h-full w-full inset-0  ${isOpen? 'max-md:z-10 backdrop-blur-lg '  : ''} backdrop-blur-sm`}></div>
 

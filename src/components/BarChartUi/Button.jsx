@@ -24,13 +24,13 @@ Button.displayName = "Button";
 
 const buttonVariants = {
   default: "bg-accent text-accent-foreground hover:bg-accent/90",
-  outline: "border border-input hover:bg-accent hover:text-accent-foreground",
+  outline: "border border-input hover:bg-gold hover:text-accent-foreground",
   ghost: "hover:bg-accent hover:text-accent-foreground",
   destructive: "bg-red-600 text-white hover:bg-red-600/90",
 };
 
 const buttonSizes = {
   sm: "px-2 py-1 text-sm",
-  md: "px-4 py-2 text-base",
+  md: "px-2 py-1 text-sm",
   lg: "px-6 py-3 text-lg",
 };
