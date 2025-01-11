@@ -9,9 +9,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Card, CardHeader, CardContent } from './BarChartUi/Card'; // ShadCN Card
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from './BarChartUi/Dropdown-menu-Chart'; // ShadCN DropdownMenu
-import { Button } from './BarChartUi/Button'; // ShadCN Button
+import { Card, CardHeader, CardContent } from '../../components/ui/card'; // ShadCN Card
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@radix-ui/react-dropdown-menu'; // ShadCN DropdownMenu
+import { Button } from '../../components/ui/button'; // ShadCN Button
 import { ChevronDownIcon } from 'lucide-react'; // Icon from ShadCN
 
 // Registering ChartJS components
@@ -48,7 +48,8 @@ const ShadBarChart = ({ data, options, title, filterOptions, filterValue, onFilt
       {/* Card Content */}
       <CardContent>
         <div className="h-64">
-          <Bar data={data} options={options} />
+         
+          <Bar data={data}  options={options} />
         </div>
       </CardContent>
     </Card>

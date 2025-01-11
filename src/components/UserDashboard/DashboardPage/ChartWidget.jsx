@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HighlightLastWord from '../../HighlightLastWord'
 import LineChart from '../../LineChart';
 import BarChart from '../../BarChart';
+import  BarChartComponent  from '../../BarChartComponent'
 
 const ChartWidget = () => {
   const [leftFilter, setLeftFilter] = useState('weekly');
@@ -15,7 +16,7 @@ const ChartWidget = () => {
         data: leftFilter === 'weekly' ? [5, 8, 6, 9, 7, 4, 6] : [50, 60, 70, 80, 90, 100, 120],  backgroundColor: '#ffd700',
         borderColor: '#ffd700',
         borderWidth: 1,
-      },
+      },  
       {
         label: leftFilter === 'weekly' ? 'Total Amounts Processed' : 'Amounts (Monthly)',
         data: leftFilter === 'weekly' ? [200, 300, 250, 400, 350, 150, 280] : [2000, 3000, 2500, 4000, 3500, 1500, 2800],
@@ -77,6 +78,10 @@ const ChartWidget = () => {
         filterValue={rightFilter}
         onFilterChange={(e) => setRightFilter(e.target.value)}
       />
+     </div>
+
+     <div className="h-full">
+        <BarChartComponent />
      </div>
     </div>
   );

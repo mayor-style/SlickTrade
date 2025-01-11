@@ -9,6 +9,7 @@ import TransactionsTable from '../../components/UserDashboard/TransactionsPage/T
 import HighlightLastWord from '../../components/HighlightLastWord';
 import DashboardWelcomeMessage from '../../components/DashboardWelcomeMessage';
 import TransactionDrawer from '../../components/TransactionDrawer';
+import ComboboxDemo from '../../components/ComboboxDemo';
 
 const Dashboard = () => {
 

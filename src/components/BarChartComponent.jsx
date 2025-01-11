@@ -1,0 +1,97 @@
+import { TrendingUp } from "lucide-react"
+import { Bar } from "react-chartjs-2"
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js"
+
+// Import required components
+import {
+  Card,
+  CardContent,    
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "../../components/ui/chart"
+
+// Register Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+
+const chartData = {
+  labels: ["January", "February", "March", "April", "May", "June"], // Months
+  datasets: [
+    {
+      label: "Desktop",
+      data: [186, 305, 237, 73, 209, 214], // Desktop data
+      backgroundColor: "gold", // Color for the bars
+      borderRadius: 8,
+      barThickness: 20,
+      // Adding some label styling options
+      hoverBackgroundColor: "gold", 
+    },
+  ],
+}
+
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: {
+      ticks: {
+        autoSkip: true,
+        maxRotation: 0,
+        minRotation: 0,
+      },
+    },
+    y: {
+      beginAtZero: true,
+    },
+  },
+  plugins: {
+    tooltip: {
+      enabled: true,
+      custom: function (tooltipModel) {
+        // Custom tooltip rendering, if necessary
+        ChartTooltip(tooltipModel);
+      },
+    },
+  },
+}
+
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "white",
+  },
+}
+
+const BarChartComponent = () => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Bar Chart - Label</CardTitle>
+        <CardDescription>January - June 2024</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <div className="chart-container">
+            <Bar data={chartData} options={chartOptions} />
+          </div>
+        </ChartContainer>
+      </CardContent>
+      <CardFooter className="flex-col items-start gap-2 text-sm">
+        <div className="flex gap-2 font-medium leading-none">
+          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+        </div>
+        <div className="leading-none text-muted-foreground">
+          Showing total visitors for the last 6 months
+        </div>
+      </CardFooter>
+    </Card>
+  )
+}
+
+export default BarChartComponent
