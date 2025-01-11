@@ -87,7 +87,7 @@ const BarChartComponent = () => {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <div className="chart-container" >
+          <div className="chart-container h-64" >
             <Bar data={chartData} options={chartOptions} />
           </div>
         </ChartContainer>
