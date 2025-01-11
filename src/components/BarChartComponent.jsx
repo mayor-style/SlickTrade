@@ -1,43 +1,45 @@
-import { TrendingUp } from "lucide-react"
-import { Bar } from "react-chartjs-2"
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js"
+import { TrendingUp } from "lucide-react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 // Import required components
 import {
   Card,
-  CardContent,    
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../components/ui/card"
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "../../components/ui/chart"
+} from "../../components/ui/card";
+import { ChartContainer } from "../../components/ui/chart";
 
 // Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const chartData = {
-  labels: ["January", "February", "March", "April", "May", "June"], // Months
+  labels: ["January", "February", "March", "April", "May", "June"],
   datasets: [
     {
       label: "Desktop",
-      data: [186, 305, 237, 73, 209, 214], // Desktop data
-      backgroundColor: "gold", // Color for the bars
+      data: [186, 305, 237, 73, 209, 214],
+      backgroundColor: "gold",
       borderRadius: 8,
-      barThickness: 20,
-      // Adding some label styling options
-      hoverBackgroundColor: "gold", 
+      barThickness: 18, // Reduced bar thickness for taller appearance
     },
   ],
-}
+};
 
 const chartOptions = {
   responsive: true,
-  maintainAspectRatio: false,
+  maintainAspectRatio: false, // Allows the chart container to control height
   scales: {
     x: {
       ticks: {
@@ -48,25 +50,33 @@ const chartOptions = {
     },
     y: {
       beginAtZero: true,
-    },
-  },
-  plugins: {
-    tooltip: {
-      enabled: true,
-      custom: function (tooltipModel) {
-        // Custom tooltip rendering, if necessary
-        ChartTooltip(tooltipModel);
+       // Increased max value to stretch the chart
+      ticks: {
+        stepSize: 50, // Ensures increments of 50
+        precision: 0,
+      },
+      grid: {
+        color: "gray", // Gray grid lines
+        lineWidth: .4,
       },
     },
   },
-}
+  plugins: {
+    legend: {
+      display: true,
+    },
+    tooltip: {
+      enabled: true,
+    },
+  },
+};
 
 const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "white",
   },
-}
+};
 
 const BarChartComponent = () => {
   return (
@@ -77,7 +87,7 @@ const BarChartComponent = () => {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <div className="chart-container">
+          <div className="chart-container" >
             <Bar data={chartData} options={chartOptions} />
           </div>
         </ChartContainer>
@@ -91,7 +101,7 @@ const BarChartComponent = () => {
         </div>
       </CardFooter>
     </Card>
-  )
-}
+  );
+};
 
-export default BarChartComponent
+export default BarChartComponent;
